@@ -1,0 +1,1121 @@
+var re = /^[a-zA-Z\u00f1\u00d10-9\$\^\-\|\:\?\{\}\(\)\@\%\#\~\!\+¡\_\`\[\],\.\*\/\=\b]{0,}$/;
+var errorResponsePass = true;
+
+Vue.use(window.vuelidate['default']);
+var validationMixin = window.vuelidate.validationMixin;
+var required = validators.required;
+var minLength = validators.minLength;
+var maxLength = validators.maxLength;
+var alpha = validators.alpha;
+var numeric = validators.numeric;
+
+
+Vue.component('change-pass', {
+    name: 'change-pass',
+	props: ['validation','combination','bank-id','is-login','fn-confirm-external-pass'],
+	mixins: [validationMixin],
+    template: 
+		'<div id="ChangePasword">'+
+		   ' <b-container class="my-3 py-5" style="padding-top: 0px !important;">'+
+		        '<b-row class="justify-content-md-center">'+
+		           ' <b-col lg="5"> '+
+		            	   '<h2 class="text-center fw-400 mb-4">Nueva Clave</h2>'+
+		            	   '<alert id="warningPass" v-if="isLogin && !disabledPass && !combination" style="display: inline-table;" variant="warning"><span style="line-height: 26px;" v-html="messageError" /> '+
+			            	'<div id="helpMsg" v-show="!disabledPass">  '+         
+			                    '<br>'+
+			                    	'<p class="titleLogin1"><h2 style="font-size:16px;">Recuerda que tu nueva contrase&ntilde;a debe:</h2></p>'+
+				                    '<p class="titleLogin1" v-show="alphaNumCharacters>0"><span v-html="title1"></span></p>'+
+				                    '<p class="titleLogin1" v-show="numericCharacters>0"><span v-html="title2"></span></p>'+
+				                    '<p class="titleLogin1" v-show="min_chrs>0"><span v-html="title3"></span></p>'+
+				                    '<p class="titleLogin1" v-show="validateMsg">&#8226;Incluir si desea may&uacute;sculas, min&uacute;sculas y caracteres especiales</p>'+
+				                    '<p class="titleLogin1" v-show="validateMsg2">&#8226;Incluir si desea may&uacute;sculas, min&uacute;sculas</p>'+
+				                    '<p class="titleLogin1" v-show="validateMsg3">&#8226;Incluir si desea caracteres especiales</p>'+
+			                    '</br>'+
+			                  '</div>'+
+		            	   '</alert>'+
+		            	   '<alert v-if="isLogin && !disabledPass && combination" id="warningPassImage" style="display: inline-table;" variant="warning"><span style="line-height: 26px;" v-html="\'Estimado cliente es la primera vez que ingresa o su clave e imagen han expirado. Por favor cambie su clave y seleccione la imagen.\'" /> '+
+			            	'<div id="helpMsg2">  '+         
+			                    '<br>'+
+			                    	'<p class="titleLogin1"><h2 class="titleNewKey" style="font-size:16px;">Recuerda que tu nueva contrase&ntilde;a debe:</h2></p>'+
+				                    '<p class="titleLogin1" v-show="alphaNumCharacters>0"><span v-html="title1"></span></p>'+
+				                    '<p class="titleLogin1" v-show="numericCharacters>0"><span v-html="title2"></span></p>'+
+				                    '<p class="titleLogin1" v-show="min_chrs>0"><span v-html="title3"></span></p>'+
+				                    '<p class="titleLogin1" v-show="validateMsg">&#8226;Incluir si desea may&uacute;sculas, min&uacute;sculas y caracteres especiales</p>'+
+				                    '<p class="titleLogin1" v-show="validateMsg2">&#8226;Incluir si desea may&uacute;sculas, min&uacute;sculas</p>'+
+				                    '<p class="titleLogin1" v-show="validateMsg3">&#8226;Incluir si desea caracteres especiales</p>'+
+			                    '</br>'+
+			                  '</div>'+
+		            	   '</alert>'+
+						   '<alert  variant="success" v-show="disabledPass && !errorPass && !combination">&#161;Clave actualizada exitosamente&#33;<br>Por favor ingrese nuevamente con su clave actualizada.</alert>'+
+						   '<alert  variant="success" v-show="disabledPass && !errorPass && combination">&#161;Clave e imagen actualizadas exitosamente&#33;<br>Por favor ingrese nuevamente con su clave actualizada.</alert>'+
+						   '<alert  variant="danger" v-show="errorPass"><span style="margin-left: 7px;" v-html="\'Detalle:\' + errorMessagePass"></span></alert>'+
+		                   '<div id="formChangePass">'+
+		                   	'<b-form-group  class="mt-3" id="input-password" label-for="f_previousKey" label="Clave Anterior"> '+
+									'<b-form-input '+
+										'id="f_previousKey" '+ 
+										'type="password" '+
+										'@focusout="focusPreviewKey(false)"'+ 
+                                        '@focusin="focusPreviewKey(true)"'+
+										'v-model="changePass.previousKey" '+  
+										'placeholder="Ingrese su actual Clave" '+
+										'class="size-pass-input"'+
+										':disabled="disabledPass"'+
+										':state="statePreviousKey" '+
+										'aria-describedby="input-valid-previousKey" '+
+										':messages="messagesOverride" > '+ 
+									'</b-form-input>'+
+									'<b-form-invalid-feedback id="input-valid-previousKey" v-if="maxThan(changePass.previousKey)">'+
+								          'Campo requerido'+
+								    '</b-form-invalid-feedback>'+
+								    '<b-form-invalid-feedback id="input-valid-previousKey1" v-else-if="passInvalid">'+
+								          'Contrase&ntilde;a errada, intente nuevamente'+
+								    '</b-form-invalid-feedback>'+
+							'</b-form-group>'+
+							'<b-form-group  class="mt-3" id="input-group-2"> '+
+								'<slot name="label"> '+
+									'<label id="lbl_newKey" for="f_newKey" class="d-block">Nueva Clave '+
+										'<i id="popover-info" v-if="!isLogin" class="fal fe-info-circle info-icon" variant="primary"></i> '+
+									'</label> '+
+								'</slot> '+
+									'<b-form-input '+	
+										'id="f_newKey" '+
+										'type="password" '+
+										'v-model="changePass.newKey" '+
+										'@focusout="focusNewKey(false)"'+ 
+                                        '@focusin="focusNewKey(true)"'+
+										':disabled="disabledPass"'+
+										'class="size-pass-input"'+
+										':maxlength="maxPass"'+	
+										'placeholder="Ingrese su nueva Clave" '+
+										':state="stateNewKey"'+
+										'aria-describedby="input-valid-newKey"> '+ 
+									'</b-form-input> '+
+								    '<b-form-invalid-feedback id="input-valid-newKey" v-if="minThan(changePass.newKey)">'+
+								          '{{min_chrs_msg}}'+
+								    '</b-form-invalid-feedback>'+
+								    '<b-form-invalid-feedback id="input-valid-newKey2" v-else-if="maxThan(changePass.newKey)">'+
+								          'Campo requerido'+
+								    '</b-form-invalid-feedback>'+
+								 	'<b-form-invalid-feedback id="input-valid-newKey3" v-else-if="newKeyError300196">'+
+								          'Esta contrase&ntilde;a no cumple con las caracter&iacute;sticas de seguridad parametrizadas'+
+								    '</b-form-invalid-feedback>'+
+								    '<b-form-invalid-feedback id="input-valid-newKey4" v-else-if="newKeyError300195">'+
+								          'Estimado cliente, la clave ha sido utilizada recientemente.'+
+								    '</b-form-invalid-feedback>'+
+								'<b-tooltip id="tooltipNoInformation" '+
+									'target="popover-info"  '+
+									'placement="bottomright"  '+
+									'custom-class="tooltip-info tooltip-bank style-toolip"> '+
+									'Incluir entre 8 y 20 caracteres, m&iacute;nimo 2 caracteres num&eacute;ricos, m&iacute;nimo 6 caracteres alfanum&eacute;ricos, reconoce entre may&uacute;sculas y min&uacute;sculas, pueden incluir caracteres especiales. '+
+								'</b-tooltip> '+
+							'</b-form-group>'+
+							'<b-form-group  class="mt-3" id="input-group-3" label-for="f_confirmKey" label="Confirmar Clave"> '+
+									'<b-form-input '+ 	
+										'id="f_confirmKey" '+
+										'type="password" '+
+										'@focusout="focusConfirmKey(false)"'+ 
+                                        '@focusin="focusConfirmKey(true)"'+
+										'v-model="changePass.confirmKey" '+
+										':disabled="disabledPass"'+
+										'class="size-pass-input"'+	
+										'placeholder="Repetir su nueva Clave" '+
+										':maxlength="maxPass"'+
+										':state="stateConfirmKey"'+
+										'aria-describedby="input-valid-confirmKey"> '+
+									'</b-form-input> '+
+								 	'<b-form-invalid-feedback id="input-valid-confirmKey2" v-if="minThan(changePass.confirmKey)">'+
+								          '{{min_chrs_msg}}'+
+								    '</b-form-invalid-feedback>'+
+								    '<b-form-invalid-feedback id="input-valid-confirmKey"  v-else-if="maxThan(changePass.confirmKey)">'+
+								          'Campo requerido'+
+								    '</b-form-invalid-feedback>'+								    
+								   	'<b-form-invalid-feedback id="input-valid-confirmKey3" v-else-if="changePass.newKey!=changePass.confirmKey">'+
+										'La contrase&ntilde;a no coincide, por favor valide nuevamente'+
+								    '</b-form-invalid-feedback>'+
+							'</b-form-group>'+
+                            '<div id="passKeyboard" class="d-flex p-relative mb-3" v-if="bankId != \'BBTA\'">'+
+                                '<b-button @focus="showKeyboardPass" data-layout="normal" variant="sublink">'+
+                                    '<i class="far fa-keyboard icon-left"></i> Teclado virtual'+
+                                '</b-button>'+
+                                '<vue-touch-keyboard id="keyboard" class="inherit-keyboard" v-if="visibleKeyboard" :layout="layoutPass" :cancel="hidePass" :accept="acceptPass" :input="inputKeyboard" :next="nextPass" />'+
+                            '</div>'+
+							'<div class="d-flex justify-content-md-center group-btn pt-3" v-if="!combination">'+
+								'<b-button type="button" @click.prevent="finishPass()" class="button-link button-cancel" variant="link" size="l" v-show="!disabledPass && isLogin">Cancelar</b-button> '+
+							 	'<b-button type="button" :class="bankId == \'BPOP\' && isLogin?\'continue-login\':bankId != \'BOCC\'&& isLogin?\'btn-confirm\':!isLogin?\'buttonTx buttonBtaTxContinue ui-button-next\':\'\'" @click.prevent="confirmChangePass(false)"  variant="success" size="l" v-show="!disabledPass"><icon v-if="!isLogin" v-show="bankVerifyIcon()" class="ui-flowbutton-icon iconInternas"></icon>Continuar</b-button>'+
+								'<b-button type="button" class="btn-back button-cancel" @click.prevent="finishPass()"  variant="success" size="s" v-show="disabledPass && isLogin" style="margin-left: 420px;">Volver</b-button>'+
+								'<b-button id="backFinish" type="button" @click.prevent="doFinish()" class="buttonTx spaceButtonLeft ui-button-finalize ui-button-finalize btn-finish-style" variant="success" size="s" v-show="disabledPass && !isLogin" style="margin-left: 420px;"><icon v-if="!isLogin" v-show="bankVerifyIcon()" :class="bankid==\'BPOP\'?\'continueTop\':\'\'" class="ui-flowbutton-icon iconInternas"></icon>Finalizar</b-button>'+	
+							'</div>'+
+		                   '</div>'+
+		            '</b-col>'+
+		        '</b-row>'+
+		    '</b-container>'+
+		    '<v-modal id="result-modal-changePass" title="" variant="success">'+
+				'<p class="text-modal-sucess" v-show="!combination">&#161;Clave actualizada exitosamente&#33;</p>'+
+				'<p class="text-modal-sucess" v-show="combination">&#161;Clave e imagen actualizadas exitosamente&#33;</p>'+
+				'<div class="d-flex justify-content-center">'+
+					'<b-button type="button" @click="finishChangePass()" variant="success" size="s" class="buttonTx buttonBtaTxContinue ui-button-next2 button-finish-modal"><icon v-if="!isLogin" v-show="bankVerifyIcon()" class="ui-flowbutton-icon iconInternas"></icon>Continuar</b-button>'+
+				'</div>'+
+			'</v-modal>'+
+		'</div>',
+		created: function(){
+			var resultPass = syncAjaxLoadText({url: "/icbs-web/AjaxTx?AID=OWER_KEY_CHANGE_MAIN_PASS-0102&RQE=FAC0019C79B6358D&CRFT=fac0019c79b6348e",
+                            params: ""
+                        });
+
+            this.minPass=resultPass.MinLenght;
+            this.maxPass=resultPass.MaxLenght;
+            this.alphaNumCharacters=parseInt(resultPass.AlphaNumCharacters);
+            this.numericCharacters=parseInt(resultPass.NumericCharacters);
+            this.specialCharactersAllowed=resultPass.SpecialCharactersAllowed;
+            this.isLoginHelpActive=resultPass.isLoginHelpActive;
+            this.capsAllowed=resultPass.CapsAllowed;
+            this.min_chrs=parseInt(this.minPass);
+            this.min_chrs_msg = ("Por favor ingresar al menos {0} caracteres.").replace("{0}",this.minPass)
+			this.max_chrs_msg = ("Por favor ingresar como m&aacute;ximo {0} caracteres.").replace("{0}",this.maxPass)
+			this.messageError = "Estimado cliente, su clave ha sido restablecida o ha caducado, por favor cambie su clave.";
+			this.helpTitle = "Recuerda que tu nueva contrase&ntilde;a debe:";
+		},
+		mounted: function(){
+			this.title1 = ("&#8226;Incluir m&iacute;nimo {0} caracteres alfab&eacute;ticos").replace("{0}",this.alphaNumCharacters);
+			this.title2= ("&#8226;Incluir m&iacute;nimo {0} n&uacute;meros").replace("{0}",this.numericCharacters);
+			this.title3= ("&#8226;Tener {0} caracteres entre n&uacute;meros y letras").replace("{0}",this.minPass);
+			this.$emit('on-mounted');
+		},
+	    data: function() {
+	        return {
+	        	selectedInput: null,
+	        	passInvalid: false,
+	        	newKeyError300196: false,
+	        	newKeyError300195: false,
+	        	errorStatusCode: 0,
+	        	//minimo y maximo
+				minPass: null,
+				maxPass: null,
+				//configuracion de formulario
+				min_chrs_msg: null,
+				max_chrs_msg: null,
+				min_chrs: null,
+				visibleKeyboard: false, // variable keyboard
+				alphaNumCharacters: null,
+				numericCharacters: null,
+				specialCharactersAllowed: null,
+				capsAllowed: null,
+				isLoginHelpActive: null,
+				title1: "", //se setea en mounted
+				title2: "", //se setea en mounted
+				title3: "", //se setea en mounted
+				disabledPass: false,
+				errorPass: false,
+				inputKeyboard: null,
+				layoutPass: "normal",
+				errorMessagePass: null,
+
+				//atributos formulario
+				changePass: {
+					previousKey: null ,
+					newKey: null,
+					confirmKey: null,
+            	},
+	            previousKey: null,
+				newKey : null,
+				confirmKey: null,
+				statePreviousKey: null,
+				statusCheckNewKey: false,
+				stateNewKey : null,
+				stateConfirmKey: null,
+				isCurrentKeyValid: null,
+				confirmedPassword: false,
+	            messageError: '',
+	            helpTitle: '',
+				status: null,
+				resultOwnerKeychange: null,
+				messagesOverride: { 
+					required: " TEST You must fill the {attribute} field to continue",
+					email: " TEST The email must be a genuine email address."
+				},
+				//PBE-5856 Variables para validacion de bloqueo por reintentos de nueva clave
+				newKeyStatusCode: null,
+				blockedByNewPassRetries: false
+	        }
+	    },
+
+		//reglas de validaciones de input 
+        validations: {
+            changePass: {
+                previousKey: {         
+					required: required,
+					validReg : function(){return (re.test(this.changePass.previousKey))}
+                },
+                newKey: {
+					maxLength : function(){
+						if(this.changePass.newKey!=null && this.changePass.newKey!=""){
+							if(this.changePass.newKey.length <= parseInt(this.maxPass)){
+							 return true;
+							}
+						}
+						return false;
+					},
+                    minLength: function(){
+	                   	if(this.changePass.newKey!=null && this.changePass.newKey!=""){
+							if(this.changePass.newKey.length >= parseInt(this.minPass)){
+							 return true;
+							}
+						}
+						return false;
+					},
+					required: required,
+					validReg : function(){return (re.test(this.changePass.previousKey))},
+					equalsTo : function(){return (this.changePass.newKey == this.changePass.confirmKey)},
+					errorEquals: function(){
+						this.checkNewKeyStatusCode().then(function(statusCode) {
+							return statusCode!=300196 && statusCode!=300195;
+						}.bind(this)).catch(function(error) {
+						   console.error('Error en validacion de nueva clave:', error);
+						   return false;
+						});
+						return true;
+					}
+				},
+				confirmKey: {
+					maxLength : function(){
+						if(this.changePass.confirmKey!=null && this.changePass.confirmKey!=""){
+							if(this.changePass.confirmKey.length <= parseInt(this.maxPass)){
+							 return true;
+							}
+						}
+						return false;
+					},
+                    minLength: function(){
+                    	if(this.changePass.confirmKey!=null && this.changePass.confirmKey!=""){
+							if(this.changePass.confirmKey.length >= parseInt(this.minPass)){
+							 return true;
+							}
+						}
+						return false;
+					},
+					required: required,
+					validReg : function(){return (re.test(this.changePass.previousKey))},
+					equalsTo : function(){return (this.changePass.newKey == this.changePass.confirmKey)}
+
+				},
+            }
+        },
+        watch: {
+			disabledPass: function(val) {
+				if(val) {
+					this.newKeyError300196 = false;
+					$("#f_newKey").addClass("vue-change-pass-result-input");
+				}
+			},
+			'changePass.previousKey': function(val) {
+				if(this.maxThan(val) == true){
+					this.statePreviousKey = false;
+				}else{
+					this.statePreviousKey = null;
+				}
+			},
+			'changePass.newKey': function(val) {
+				if(this.minThan(val) == true || this.maxThan(val) == true){
+					this.stateNewKey = false;
+				}else{
+					this.stateNewKey = null;
+				}
+			},
+			'changePass.confirmKey': function(val) {
+				if(this.minThan(val) == true || this.maxThan(val) == true || this.changePass.newKey != val){
+					this.stateConfirmKey = false;
+				}else{
+					this.stateConfirmKey = null;
+				}
+			},
+		},
+        computed:{
+       		validateMsg: function(){
+        		return this.specialCharactersAllowed==='true' && this.capsAllowed==='true'? true : false;
+        	},
+       		validateMsg2: function(){
+        		return this.specialCharactersAllowed==='false' && this.capsAllowed==='true'? true : false;
+        	},
+       		validateMsg3: function(){
+        		return this.specialCharactersAllowed==='true' && this.capsAllowed==='false'? true : false;
+        	}
+        },
+	    methods: {
+            filterInput: function (e){
+                e.target.value = e.target.value.replace(/[^0-9\.]+/g,''); 
+            },
+            acceptPass: function (text) {
+                this.hidePass();
+              },
+            showKeyboardPass: function (e) {
+				this.callTealEvent("ChangePassword");
+              this.inputKeyboard = $("#"+this.selectedInput)[0];
+              this.layoutPass = "normal";
+              if (!this.visibleKeyboard) {
+				var intervalMouseUp = setInterval(function() {
+					$(document).off('mouseup');
+					$(document).mouseup(function (e) {
+						var container = $("#keyboard");
+						// if the target of the click isn't the container nor a descendant of the container or cancel/accept key
+						if (!container.is(e.target) && container.has(e.target).length === 0
+							|| container.has(e.target).length !== 0 && e.target.className.indexOf("accept") !== -1) {
+							vm.$refs.changepassref.hidePass();
+							$(document).off('mouseup');
+ 						}
+					});
+					if($._data($(document)[0], 'events')['mouseup']){
+						clearInterval(intervalMouseUp);
+					}
+				}, 100);
+              }
+              if (!this.visibleKeyboard)
+                this.visibleKeyboard = true;
+            },
+            hidePass: function () {
+              this.visibleKeyboard = false;
+              $(document).off('mouseup');
+            },
+            nextPass: function () {
+              var inputs = document.querySelectorAll("input");
+              var found = false;
+              [].forEach(function (inputs, item, i) {
+                if (!found && item == this.input && i < inputs.length - 1) {
+                  found = true;
+                  this.$nextTick(function () {
+                    inputs[i + 1].focus();
+                  });
+                }
+              });
+              if (!found) {
+                this.inputKeyboard.trigger('blur');
+                this.hidePass();
+              }
+            },
+	    	focusPreviewKey: async function(flag){
+	    		this.selectedInput="f_previousKey";
+	    		if(flag == false && this.maxThan(this.changePass.previousKey) == false){
+					this.statePreviousKey = true;
+					await this.checkCurrentKey();
+				}else{
+					this.passInvalid = false;
+					if(flag == true && this.statePreviousKey != false && this.confirmedPassword == true){
+	                    this.changePass.previousKey = "";
+	                    this.confirmedPassword = false;
+		            }
+				}
+	    	},
+	    	focusNewKey: async function(flag){
+		    	this.selectedInput="f_newKey";
+		    	if(flag == false && this.minThan(this.changePass.newKey) == false && this.maxThan(this.changePass.newKey) == false){
+					await this.checkNewKey();
+					this.newKeyStatusCode = null;
+				}else{
+					this.newKeyError300196 = false;
+					this.newKeyError300195 = false;
+					this.errorStatusCode=0;
+				}
+	    	},
+	    	focusConfirmKey: function(flag){
+	    		this.selectedInput="f_confirmKey";
+		    	if (flag == true && this.stateConfirmKey == false && this.changePass.confirmKey != null && this.confirmedPassword == true){
+		    		this.errorStatusCode = 0;
+                    this.stateConfirmKey = null;
+                    this.confirmedPassword = false;
+                }
+	    	},
+	    	 maxThan: function(num){
+	    		return num==null || num=="" ? true: false;
+	    	},
+	    	minThan: function(num){
+	    	if(num!=null){
+	    		return ((num.length  < parseInt(this.minPass)) && (num.length != 0)) ?  true : false;
+	    	}
+	    	return false;
+	    	},
+	        finishPass: function(){
+				this.callTealEvent("ChangePassword");
+	        	footerVue.fixedActive=true;
+	     	    var newlogin = function(){
+					var language= "es";
+					var url = "";
+					
+					if(this.bankid == 'BAVV'){
+						url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_AVV&RQE=FAC0019C79B6358E&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+					}else if(this.bankid == 'BBTA'){
+						url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_BTA&RQE=FAC0019C79B6358F&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+					}else if(this.bankid == 'BOCC'){
+						url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_OCC&RQE=FAC0019C79B63590&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+					}else if(this.bankid == 'BPOP'){
+						url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_POP&RQE=FAC0019C79B63591&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+					}
+		    		
+		            callNextActionPublic("content", url);
+		        };
+		        localStorage.setItem('closeSession', 'true');
+				killSession('/icbs-web/AjaxTx?AID=PREPARE_EXIT-0000&RQE=FAC0019C79B63592&CRFT=fac0019c79b6348e',newlogin);
+				
+				return false;
+	         },
+			finishChangePass: function(){
+				this.$bvModal.hide('result-modal-changePass');
+			},
+			//validacion de esto del campo, segun reglas de validacion
+			validateState: function(dirty,error) {	   	  
+			      $error = error; 
+				  $dirty = dirty;
+			      return $dirty ? !$error : null;
+				},
+			 //valida primer step de login
+            validateChangePass: function () {
+				this.$v.changePass.$touch();
+				this.statePreviousKey = this.validateState(this.$v.changePass.previousKey.$dirty,this.$v.changePass.previousKey.$error);
+				this.stateNewKey = this.validateState(this.$v.changePass.newKey.$dirty,this.$v.changePass.newKey.$error);
+				this.stateConfirmKey = this.validateState(this.$v.changePass.confirmKey.$dirty,this.$v.changePass.confirmKey.$error);
+
+
+				if (this.$v.changePass.$error){
+					return false;
+				}else if (!this.$v.changePass.$error){
+					return true;
+				}
+
+            },
+			checkCurrentKey: async function (validationImage) { // Validacion de clave actual
+				this.status = [];
+				this.isCurrentKeyValid = this.statePreviousKey;
+				
+				if (this.isCurrentKeyValid && (this.changePass.previousKey != "")) {
+					// CC178
+					var encodedPreviousKey = await $.component.utils.dd(this.changePass.previousKey, !enableClientEncryption);
+					var result;
+					this.$parent.startSpinner();
+					var urlEngine = this.isLogin? "/icbs-web/AjaxTx?AID=OWER_KEY_CHANGE_VALIDATE_PREVIOUSKEY_LOGIN-0000&RQE=FAC0019C79B63593&CRFT=fac0019c79b6348e":
+								"/icbs-web/AjaxTx?AID=OWER_KEY_CHANGE_VALIDATE_PREVIOUSKEY-0000&RQE=FAC0019C79B63594&CRFT=fac0019c79b6348e";
+					var params={};
+					params.securID=  encodedPreviousKey;
+					
+					result= syncAjaxLoadText({url:urlEngine,params:params});
+					this.$parent.finishSpinner();
+					this.status.push(result);
+					if(result.StatusCodeAlt == "380502" || result.StatusCodeAlt == "380501"){
+						var url = "/icbs-web/AjaxTx?AID=NEW_ERROR_GRAL_RESPONSE_MSG_PUBLIC_LOGIN-0000&RQE=FAC0019C79B63596&CRFT=fac0019c79b6348e";
+						var codeError=syncAjaxLoadText({
+		            		url: url,
+		            		params: ""
+		         		});
+		         		this.disabledPass=true;
+		         		this.errorPass=true;
+		         		$("#passKeyboard").remove();
+		         		this.focusPreviewKey();
+		         		this.statePreviousKey = null
+		         		this.stateNewKey = null;
+		         		this.stateConfirmKey = null;
+		         		this.errorMessagePass="("+codeError+")"+" "+"Super&oacute; el n&uacute;mero m&aacute;ximo de intentos permitidos intente m&aacute;s tarde o comun&iacute;quese con la entidad";
+		         		if (!this.isLogin && result.StatusCodeAlt == "380501") {
+		         			this.errorMessagePass="("+codeError+")"+" "+"Estimado cliente, ha superado el n&uacute;mero m&aacute;ximo de intentos permitidos.";
+		         		}
+		         		$(".is-invalid").removeClass("is-invalid");
+		         		if(validationImage){
+			    			this.$parent.$refs.changeimageref.finishProcess();
+							$("#backImageId").css("margin-left", "216px");
+							$("#backFinish").css("margin-left", "216px");
+						}
+		         		return false;
+					}
+					if (typeof(result) == "object" && result.StatusCodeAlt != "000000" && result.StatusCodeAlt != "300364" && result.StatusCodeAlt != "300363" ) {
+						this.statePreviousKey = false;
+						if(result.StatusCodeAlt == "300182"){
+							this.passInvalid=true;
+						}
+						var intervalPrevious = setInterval(function() {
+							if($("#input-valid-previousKey1").length!=0){
+								if(vm.$refs.changepassref.disabledPass){
+									$("#f_previousKey").css("border-color","#ced4da");
+									$("#input-valid-previousKey1").hide();
+								}
+								clearInterval(intervalPrevious);
+							}
+						}, 200);
+						return false;
+					}
+					if (result.StatusCodeAlt == "000000") {
+						this.statePreviousKey = null;
+						this.passInvalid = false;
+					}
+					return true;
+				}
+				return false;
+			},			
+			checkNewKey: async function() { // Validacion de nueva contraseña
+				errorResponsePass = true;
+				
+				var resultStatusCode = await this.checkNewKeyStatusCode();
+				if (resultStatusCode == "300196" || resultStatusCode == "300195" || resultStatusCode == "300213") {
+					
+					this.stateNewKey = false;
+					if (resultStatusCode == "300196") {
+						this.newKeyError300196 = true;
+					} else if (resultStatusCode == "300195") {
+						this.newKeyError300195 = true;
+					}
+					this.errorStatusCode=parseInt(resultStatusCode);
+					var intervalNew = setInterval(function() {
+						if($("#input-valid-newKey3").length!=0){
+							if(vm.$refs.changepassref.disabledPass){
+								$("#f_newKey").css("border-color","#ced4da");
+								$("#input-valid-newKey3").hide();
+							}
+							clearInterval(intervalNew);
+						}
+						if($("#input-valid-newKey4").length!=0){
+							if(vm.$refs.changepassref.disabledPass){
+								$("#f_newKey").css("border-color","#ced4da");
+								$("#input-valid-newKey4").hide();
+							}
+							clearInterval(intervalNew);
+						}
+					}, 200);
+					return false;
+				} else if (resultStatusCode == "380501") {
+					this.errorStatusCode=parseInt(resultStatusCode);
+					return true;
+				} else if (resultStatusCode == "000000"){
+					this.stateNewKey = null;
+					this.newKeyError300196 = false;
+					this.newKeyError300195 = false;
+				}
+				return true;
+			},
+			checkNewKeyStatusCode: async function() { // Validacion de nueva contraseña
+				// CC1273
+				if(this.newKeyStatusCode !== null) {
+					var altNewKeyStatusCode = this.newKeyStatusCode;
+					this.newKeyStatusCode = null;
+					return altNewKeyStatusCode;					
+				} 
+				var encodedNewKey = await $.component.utils.dd(this.changePass.newKey, !enableClientEncryption);
+
+				urlValidate = "/icbs-web/AjaxTx?AID=OWER_KEY_CHANGE_VALIDATE_NEWKEY-0000&RQE=FAC0019C79B6359C&CRFT=fac0019c79b6348e&newkeyID=" + encodeURIComponent(encodedNewKey);
+				var result2 = syncAjaxLoad({url: urlValidate});
+				if(Array.isArray(result2)) {
+					result2 = result2[0];
+				}
+				var resultStatusCode = (result2.statusCode) ? result2.statusCode : (result2.StatusCodeAlt == "380501") ? result2.StatusCodeAlt : result2.StatusCode;
+				
+				if(this.newKeyStatusCode === null) {
+					this.newKeyStatusCode = resultStatusCode;
+				}
+				
+				if(parseInt(this.newKeyStatusCode) === 380501) {
+					this.blockedByNewPassRetries = true;
+					this.errorStatusCode = 380501;
+				}
+				
+				return resultStatusCode;
+			},
+			confirmChangePass: async function(validationImage) {
+				this.callTealEvent("ChangePassword");
+				this.confirmedPassword = true;
+        		if(this.changePass.previousKey == "" || this.changePass.previousKey == null){
+        			$("#input-valid-previousKey").show();
+        		}
+				$("#previous").html("");
+
+				this.$nextTick(function () {
+                    this.$v.$reset();
+                });
+				var urlEngine = "/icbs-web/AjaxTx?AID=OWER_KEY_CHANGE_RESULT_PASSWD_ONLY-0200&RQE=FAC0019C79B6359D&CRFT=fac0019c79b6348e";
+				var validcmbcategoriesCombo = "";
+				var valid = await this.validateChangePass();
+				var confirmResultPass = null;
+
+				var validPrevPass = await this.checkCurrentKey(validationImage);
+				if (validationImage){
+					return valid;
+				}
+				if (typeof this.fnConfirmExternalPass === 'function') {
+					if (valid == true && validPrevPass == true) {
+						valid = this.fnConfirmExternalPass();
+					}
+				}
+				if (valid && validPrevPass) {
+					this.statusCheckNewKey = await this.checkNewKey();
+					if(this.statusCheckNewKey && errorResponsePass){
+						this.isCurrentKeyValid = (this.status[0] != null) && (this.status[0]["StatusCodeAlt"] == "000000" || this.status[0]["StatusCodeAlt"] == "300364");
+
+						if(this.isCurrentKeyValid){
+							var params={};
+							params = await this.encodeChangePassParams(params, this.changePass, enableClientEncryption)
+							this.$parent.startSpinner();
+							confirmResultPass= syncAjaxLoad({url:urlEngine,params:params});
+							this.disabledPass=true;
+							var intervalInput = setInterval(function() {
+								if($("#f_previouskey").length!=0 && $("#f_newKey").length!=0 && $("#f_confirmKey").length!=0){
+				    				$("#f_previouskey").css("max-width","442px");
+									$("#f_newKey").css("max-width","442px");
+									$("#f_confirmKey").css("max-width","442px");
+									clearInterval(intervalInput);
+								}
+							}, 500);
+				          	if(confirmResultPass[0].statusCode=="000000"){
+				          		$("#passKeyboard").remove();
+				          		this.$bvModal.show("result-modal-changePass");
+				          		if(!validationImage){
+        							this.$parent.finishSpinner();
+        						}
+        						this.$emit('changed-pass', confirmResultPass[0]);
+				          		return true;
+				          	}
+				          	else{
+				          		$("#passKeyboard").remove();
+				          		this.errorPass=true;
+				          		$('#f_newKey').val("");
+				          		var message = confirmResultPass[0].messageError;
+				          		
+				          		if(message.indexOf("|")!== -1){
+				          			message=message.split("|")[0];
+				          		}
+				          		
+				          		var statusCode = confirmResultPass[0].statusCode;
+				          		if (statusCode == "300185") {
+									message = "La clave nueva no debe contener la clave actual"
+								} else if (statusCode == "300184") {
+									message = "Estimado cliente, la clave nueva no debe contener el nombre de usuario."
+								}
+				          		
+				          		this.errorMessagePass="("+confirmResultPass[0].statusCode+")"+" "+message;
+				          		this.$parent.finishSpinner();
+				          	} 
+
+						}
+					}
+				}
+				if(!validationImage){
+        			this.$parent.finishSpinner();
+				}
+				if(confirmResultPass != null){
+					confirmResultPass = confirmResultPass[0];
+				}
+        		this.$emit('changed-pass', confirmResultPass );
+				return false;
+			},
+			encodeChangePassParams: async function(params, changePass, enableClientEncryption) {
+				// CC178
+				if (enableClientEncryption) {
+					params.previouskey = await $.component.utils.dd(changePass.previousKey, false);
+					params.newkey = await $.component.utils.dd(changePass.newKey, false);
+					params.confirmkey = await $.component.utils.dd(changePass.confirmKey, false);
+				}
+				return params;
+			},
+			callTealEvent: function(event){
+                setTimeout(function(){
+                    //E1039 - Llamada Tealium
+                    if("false" == 'true') {
+                        callTealiumEvent("view", {action: event});
+                    }
+                },200)
+            },
+            doFinish: function() {
+            	this.$emit('finish-change');
+            },
+            showNewPassRetriesError: function(){
+				this.disabledPass = true;
+				this.errorPass = true;
+				this.errorMessagePass="("+this.errorStatusCode+")"+" "+ "Estimado cliente, ha superado el n&uacute;mero m&aacute;ximo de intentos permitidos.";
+			}
+        }
+
+})
+
+
+
+Vue.component('change-image', {
+	name: 'change-image',
+	props: ['user','combination','bankId','is-login','fn-confirm-external-pass'],
+	mixins: [validationMixin],
+	template:
+	'<div id="changeImage"> '+
+            ' <b-container class="my-3 py-5" style="padding-bottom: 0px !important;"> '+
+               ' <b-row class="justify-content-md-center"> '+
+                    '<b-col lg="7">  '+
+                       ' <div id="formChangeImage" > '+
+                          '  <h2 class="text-center fw-400 mb-4">Imagen de seguridad</h2> '+
+                            '<b-container fluid id ="containerImage"> '+
+                              ' <alert  v-show="!disabledImage && !combination && isLogin" variant="warning" style="width: 520px;">Estimado cliente, su imagen ha expirado</alert> '+
+		                       ' <alert  v-show="disabledImage  && !errorImage && !combination" variant="success" style="width: 520px;">&#161;Imagen actualizada exitosamente&#33;<br>Por favor ingrese nuevamente.</alert> '+ 
+		                       '<alert  variant="danger" v-show="errorImage"><span style="margin-left: 7px;" v-html="\'Detalle:\' + errorMessageImage"></span></alert>'+
+		                      '  <b-row style="margin-bottom: 30px;"> '+
+		                           ' <b-col cols="2"><dt>Usuario:</dt></b-col> '+
+		                           ' <b-col ><dd>{{user}}</dd></b-col> '+
+		                        '</b-row> '+
+                                '<b-row> '+
+                                   ' <b-col cols="2"> '+
+                                        '<b-list-group v-b-scrollspy:listgroup-ex style="width: 100px;"> '+
+                                            '<b-list-group-item class="list-group-item-action"> '+
+                                               ' <b-img left :src="imageSelected" rounded center class="new-secure-image" style="width: 100px; height: 100px;"> '+
+                                               ' </b-img> '+
+                                            '</b-list-group-item> '+
+                                            '<span >Imagen Actual</span> '+
+                                        '</b-list-group> '+
+                                    '</b-col> '+
+                                   ' <b-col id="colsTest" cols="7" style="width: 500px;height: 350px"> '+
+                                       ' <b-col id="category" cols="2" style="padding-left: 4px;"> '+
+                                          '  <dt>Categor&iacute;a</dt> '+
+                                        '</b-col> '+
+                                       ' <div id="listgroup-ex" > '+
+                                                   ' <div id="justifyContent" class="d-flex justify-content-center"> '+
+                                                       '<multiselect '+
+                                                          	'v-model="value"'+
+                                                           	':options="options"'+
+                                                           	'id="selectImage" '+
+                                                           	'placeholder="Seleccione"'+
+                                                          	'label="name"'+
+                                                          	'track-by="name"'+
+                                                          	':disabled="disabledImage"'+
+                                                           	':searchable="false"'+
+                                                          	':close-on-select="true"'+
+                                                          	':show-labels="false"'+
+                                                           	':max-height="150"'+
+                                                          	'@select="dispatchAction">'+
+                                                        '</multiselect>'+
+                                                   	'</div>'+
+	                                           		'<b-form-invalid-feedback id="input-1-live-image" >'+
+												          'Campo requerido'+
+												    '</b-form-invalid-feedback>'+
+												    '<b-form-invalid-feedback id="input-2-live-image" >'+
+												          'La imagen ha sido utilizada recientemente'+
+												    '</b-form-invalid-feedback>'+
+												    '<b-form-invalid-feedback id="input-live-image-list-empty" style="width: 415px">'+
+												          'La categor&iacute;a no contiene im&aacute;genes, seleccione otra categor&iacute;a'+
+												    '</b-form-invalid-feedback>'+
+                                           ' <b-card-group id="listCategory" class="overflow-auto"  style="max-width: 460px; max-height: 300px; margin-top: 12px;">'+
+                                               ' <b-card>'+
+                                                   ' <div  v-for="element in listSelectImg" :key="element.webId">'+
+                                                        '<b-list-group style="margin-bottom: 10px; display: inline-flex;"> '+
+                                                                   '<b-img v-bind:src="srcImage(element.encodedImageFile)" @click="selectedListImg(element,$event)" style="width: 100px;"></b-img>'+
+                                                       ' </b-list-group>'+
+                                                  '  </div> '+                  
+                                               ' </b-card>'+
+                                           ' </b-card-group>'+
+                                          	'<b-form-invalid-feedback id="input-1-live-card" >'+
+										          'Debe seleccionar una imagen'+
+										    '</b-form-invalid-feedback>'+
+                                     '   </div>'+
+                                       ' <div class="d-flex justify-content-md-center group-btn pt-3">'+
+			                            	'<b-button type="button" @click.prevent="backImage()" class="button-link button-cancel" variant="link" size="l" v-show="!disabledImage && isLogin">Cancelar</b-button> '+
+			                          		'<b-button type="button" :class="bankid != \'BOCC\' && isLogin?\'btn-confirm btn-login-update\':!isLogin?\'buttonTx buttonAvvOtherTx ui-button-update\':\'\'" @click.prevent="btnUpdateImg(combination)"  variant="success" size="l" v-show="!disabledImage">Actualizar</b-button>'+
+			                       			'<b-button id="backImageId" type="button" class="btn-back button-cancel" @click.prevent="backImage()"  variant="success" size="s" v-show="disabledImage && isLogin" style="margin-left: 345px;">Volver</b-button>'+
+			                       			'<b-button id="backFinish" type="button" class="buttonTx spaceButtonLeft ui-button-finalize ui-button-finalize btn-finish-style" @click.prevent="doFinish()"  variant="success" size="s" v-show="disabledImage && !isLogin" style="margin-left: 220px;"><icon v-if="!isLogin" v-show="bankVerifyIcon()" :class="bankid==\'BPOP\'?\'continueTop\':\'\'" class="ui-flowbutton-icon iconInternas"></icon>Finalizar</b-button>'+	
+			                          '  </div>'+
+                                  '  </b-col>'+
+                               ' </b-row>'+
+                          '  </b-container>'+
+                       ' </div>'+
+                   ' </b-col>'+
+                '</b-row>'+
+           ' </b-container>'+
+           '<v-modal id="result-modal-changeImage" title="" variant="success">'+
+				'<p class="text-modal-sucess" v-show="!combination">&#161;Imagen actualizada exitosamente&#33;</p>'+
+				'<p class="text-modal-sucess" v-show="combination">&#161;Clave e imagen actualizadas exitosamente&#33;</p>'+
+				'<div class="d-flex justify-content-center">'+
+					'<b-button type="button" @click="finishChangeImage()" variant="success" size="s" class="buttonTx buttonBtaTxContinue ui-button-next2 button-finish-modal"><icon v-if="!isLogin" v-show="bankVerifyIcon()" class="ui-flowbutton-icon iconInternas"></icon>Continuar</b-button>'+
+				'</div>'+
+			'</v-modal>'+
+       ' </div>',
+	data: function() {
+		return {
+			ownerImagenChange: null, //Cambio de imagen
+			idImage: "input-1-live-image",
+			idImage2: "input-2-live-image",
+			idCard: "input-1-live-card",
+			idImageListEmpty: "input-live-image-list-empty",
+            listComboImg: null,
+            valueCodeSelect: -1,
+            listSelectImg:null,
+            optionListImage: [],
+            selectedImage: [],
+            errorMessageImage: null,
+            errorImage: false,
+            disabledImage: false,
+
+            imgSetingUser:[],//imagen configurada para usuario
+            value: [], //valor de seleccion del combo
+            options:[], //lista completa de valores del combo
+            imgPrevUpdate:[],
+            imageSelected: "",// imagen seleccionada por usuario
+			succes: null,
+		}
+	},
+	created: function(){
+		this.loadOptionCombo(this.combination);
+	},
+	mounted: function(){
+		if(this.combination || !this.isLogin){
+			$("#overlay-background").addClass("spinnerxl");
+			$("#changeImage").css("margin-top","-100px");
+			$("#containerImage").css("margin-left","84px");
+			$("#input-live-image-list-empty").css("width","350px");
+			$("#changeImage").css("margin-bottom","130px");
+		}
+	},
+	methods: {
+		finishProcess: function(){
+			$("#listCategory .card").addClass("opacity-image");
+			this.$parent.$refs.changeimageref.displaySelect(false,this.idImage);
+			this.$parent.$refs.changeimageref.displaySelect(false,this.idImage2);
+			this.$parent.$refs.changeimageref.displaySelect(false,this.idCard);
+			this.$parent.$refs.changeimageref.displaySelect(false, this.idImageListEmpty);
+			this.$parent.$refs.changeimageref.disabledImage = true;
+		},
+		loadOptionCombo: function(condition){
+	        //funcion principal que carga informacion de cambio de imagen
+	        var urlCombo = "/icbs-web/Process?AID=NEW_OWER_KEY_CHANGE_MAIN_IMAGEN-0103&RQE=FAC0019C79B6359E&CRFT=fac0019c79b6348e";
+	        var result = syncAjaxLoadText({
+	            url: urlCombo,
+	            params: ""
+	         });
+	        if(condition){
+	        var encode="";
+	        if(typeof result.antiphishingImageDTO != "undefined"){
+	        	this.imgSetingUser = result.antiphishingImageDTO[0];
+	        	encode = result.antiphishingImageDTO[0].encodedImageFile;
+	        }
+	        this.listComboImg = typeof result.combobox[0].categoriesCombo !== 'undefined'? 
+	        					result.combobox[0].categoriesCombo: result.combobox;
+	        this.options = typeof result.combobox[0].categoriesCombo !== 'undefined'? 
+	        					result.combobox[0].categoriesCombo: result.combobox;
+	        var dataURL="data:image/jpeg;base64," + encode;
+	        this.imageSelected = dataURL;
+	        this.optionListImage = this.listComboImg;
+	        this.selectedImage = this.listComboImg[0].name;
+	        
+	        }else{
+	       	//obtencion de lista de categorias de imagen
+	       	var encode="";
+	       	if(typeof result.antiphishingImageDTO != "undefined"){
+		       	this.imgSetingUser = result.antiphishingImageDTO[0];
+		       	encode = result.antiphishingImageDTO[0].encodedImageFile;
+	       	}
+	        this.listComboImg = result.combobox;
+	        this.options = result.combobox;  
+	        var dataURL="data:image/jpeg;base64," + encode;
+	        this.imageSelected = dataURL;
+	        this.optionListImage = this.listComboImg;
+	        this.selectedImage = this.listComboImg[0].name;
+	        }
+	        
+	
+
+    	},
+	    selectImageValidate: function(){ 
+			if(this.valueCodeSelect==-1){
+				this.displaySelect(true,this.idImage);
+				return true;
+			} else if (this.listSelectImg != null && this.listSelectImg.length === 0) {
+				this.displaySelect(true, this.idImageListEmpty);
+				return true;
+			}
+			else if(this.imgPrevUpdate.imageFileName==null || typeof this.imgPrevUpdate.imageFileName === "undefined"){
+				this.displaySelect(true,this.idCard);
+				return true;
+			}
+			return false;
+		},
+		backImage: function(){
+			footerVue.fixedActive=true;
+			$("#overlay-background").removeClass("spinnerxl");
+			var newlogin = function(){
+	    		var language= "es";
+	    		var url = "";
+					
+				if(this.bankid == 'BAVV'){
+					url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_AVV&RQE=FAC0019C79B6359F&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+				}else if(this.bankid == 'BBTA'){
+					url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_BTA&RQE=FAC0019C79B635A0&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+				}else if(this.bankid == 'BOCC'){
+					url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_OCC&RQE=FAC0019C79B635A1&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+				}else if(this.bankid == 'BPOP'){
+					url = ("/icbs-web/AjaxTx?AID=NEW_LOGIN_POP&RQE=FAC0019C79B635A2&CRFT=fac0019c79b6348e&language="+language).replace(/MID=[0-9]+/, "MID=" + '');
+				}
+	            callNextActionPublic("content", url);
+	        };
+			killSession('/icbs-web/AjaxTx?AID=PREPARE_EXIT-0000&RQE=FAC0019C79B635A3&CRFT=fac0019c79b6348e',newlogin);
+			
+			return false;
+		},
+		finishChangeImage: function() {
+			this.$bvModal.hide('result-modal-changeImage');
+		},
+		srcImage: function(imageFile){
+			return 'data:image/jpeg;base64,'+imageFile;
+		},
+		displaySelect: function (value,id){
+			if(value){
+				if(id==this.$parent.$refs.changeimageref.idImage || id==this.$parent.$refs.changeimageref.idImage2){
+				   $(".multiselect__tags").addClass("border-multiselect");
+				}
+				$("#"+id).show();
+			}
+			else{
+				if(id==vm.$refs.changeimageref.idImage || id==vm.$refs.changeimageref.idImage2){
+					var intervalTags2 = setInterval(function() {
+								if($(".multiselect__tags").length!=0){
+				    				$(".multiselect__tags").removeClass("border-multiselect");
+				    				
+				    				clearInterval(intervalTags2);
+								}
+					}, 100);
+				}
+				var intervalHide = setInterval(function() {
+						if($("#"+id).length!=0){
+							$("#"+id).hide();
+							clearInterval(intervalHide);
+						}
+				}, 100);
+			}
+		},
+		dispatchAction: function(actionName){
+			this.displaySelect(false,this.idImage);
+			this.displaySelect(false,this.idImage2);
+			this.displaySelect(false,this.idCard);
+			this.displaySelect(false, this.idImageListEmpty);
+			if(actionName.code!="-1"){
+				this.imgPrevUpdate = [];
+				//funcion gatillada al seleccionar opcion de combo
+				this.valueCodeSelect=actionName.code;
+				this.displaySelect(false,this.idImage);
+				var url = "/icbs-web/AjaxTx?AID=NEW_OWER_KEY_CHANGE_COMBO_IMAGE-0000&RQE=FAC0019C79B635A4&CRFT=fac0019c79b6348e";
+				var aux = actionName.code;
+				var result = syncAjaxLoad({
+					url: url,
+					params:{
+						categoriesCombo: aux
+					}
+					});
+	
+				//lista de elemento de la categoria seleccionada
+				this.listSelectImg = result[0].ConnectorResponse[0].concreteReturn;
+				if (this.listSelectImg != null && this.listSelectImg.length === 0) {
+					var _this = this;
+					var tt = setInterval(function() {
+						clearInterval(tt);
+						_this.displaySelect(true, _this.idImageListEmpty);
+					}, 100);
+				}
+				this.$emit('dispatch-action');
+			}
+		},
+		selectedListImg: function(data,el){
+				$("#listCategory .list-group img").css("border","transparent");
+				el.target.style.border="4px solid #43B0F1";
+                this.imgPrevUpdate = data;
+                var dataURL="data:image/jpeg;base64," + this.imgPrevUpdate.encodedImageFile;
+				this.imageSelected = dataURL;
+		},
+		btnUpdateImg: async function(condition) {
+			if (document.getElementsByClassName('multiselect__tags')[0].getAttribute('class').indexOf('border-multiselect') < -1) {
+				this.displaySelect(false, this.idImage);
+				this.displaySelect(false, this.idImage2);
+				this.displaySelect(false, this.idCard);
+				this.displaySelect(false, this.idImageListEmpty);
+			}
+			var confirmPass = true;
+			if (condition) {
+				confirmPass = await vm.$refs.changepassref.confirmChangePass(true);
+			}
+			if (typeof this.fnConfirmExternalPass === 'function') {
+				if (!this.selectImageValidate() && confirmPass == true) {
+					confirmPass = this.fnConfirmExternalPass();
+				}
+			}
+			if (!this.selectImageValidate() && confirmPass) {
+				this.$parent.startSpinner();
+				var resultConsultaImage = syncAjaxLoad({ url: "/icbs-web/AjaxTx?AID=OWER_KEY_CHANGE_CONSULT_IMAGE-0000&RQE=FAC0019C79B635A5&CRFT=fac0019c79b6348e&isCheckkey=false&isLblImage=true&secureId=asdfasdfas" });
+				
+				if (!condition) {
+					this.$parent.startSpinner();
+					var resultUpdateImage = syncAjaxLoad({ url: "/icbs-web/AjaxTx?AID=NEW_OWER_KEY_CHANGE_RESULT_IMAGE_ONLY-0000&RQE=FAC0019C79B635A6&CRFT=fac0019c79b6348e&imageName=" + this.imgPrevUpdate.imageFileName });
+				} else {
+					var encodedPreviouskey = await $.component.utils.dd(vm.$refs.changepassref.changePass.previousKey, !enableClientEncryption);
+					var encodedNewKey = await $.component.utils.dd(vm.$refs.changepassref.changePass.newKey, !enableClientEncryption);
+					var encodedConfirmkey = await $.component.utils.dd(vm.$refs.changepassref.changePass.confirmKey, !enableClientEncryption);
+					this.$parent.startSpinner();
+					var user=syncAjaxLoadText({url: "/icbs-web/AjaxTx?AID=NEW_OWER_KEY_CHANGE_RESULT_LOGIN-0002&RQE=FAC0019C79B635A7&CRFT=fac0019c79b6348e"});
+					if(typeof user!="object" && user!=null){
+						// PBE-14231
+						var url = this.isLogin ? "/icbs-web/AjaxTx?AID=NEW_OWER_KEY_CHANGE_RESULT_LOGIN-0000&RQE=FAC0019C79B635A8&CRFT=fac0019c79b6348e" : "/icbs-web/AjaxTx?AID=NEW_OWER_KEY_CHANGE_RESULT-0000&RQE=FAC0019C79B635A9&CRFT=fac0019c79b6348e";
+						var resultUpdateImage = syncAjaxLoad({
+							 url: url + "&previouskey=" + encodeURIComponent(encodedPreviouskey) + 
+							 "&newkey=" + encodeURIComponent(encodedNewKey) + 
+							 "&confirmkey=" + encodeURIComponent(encodedConfirmkey) + 
+							 "&imageName=" + this.imgPrevUpdate.imageFileName 
+						});
+					} else {
+						$("#passKeyboard").remove();
+						this.finishProcess();
+						this.$parent.$refs.changepassref.disabledPass=true;
+						this.$parent.$refs.changepassref.errorPass=true;
+						this.$parent.$refs.changepassref.errorMessagePass="("+380502+")"+" "+"La informaci&oacute;n suministrada no es v&aacute;lida.";
+						this.$parent.finishSpinner();
+						this.$emit('changed-image', resultUpdateImage[0]);
+						return false;
+					}
+				}
+
+				this.$parent.finishSpinner();
+
+				if (resultUpdateImage[0].concreteReturn == "000000" && resultUpdateImage[0].statusCode == "000000") {
+					if (!condition) {
+						this.$bvModal.show('result-modal-changeImage');
+						this.finishProcess();
+					} else {
+						$("#passKeyboard").remove();
+						this.$bvModal.show('result-modal-changeImage');
+						this.finishProcess();
+						this.$parent.$refs.changepassref.disabledPass = true;
+						$("#f_previousKey").css("border-color", "#ced4da");
+						$("#input-valid-previousKey1").hide();
+						$("#f_newKey").css("border-color", "#ced4da");
+						$("#input-valid-newKey3").hide();
+						$("#input-valid-newKey4").hide();
+						$("#backImageId").css("margin-left", "220px");
+						$("#backFinish").css("margin-left", "220px");
+					}
+				} else if (resultUpdateImage[0].statusCode == "300202") {
+					this.displaySelect(true, this.idImage2);
+					this.$emit('changed-image', resultUpdateImage[0]);
+					return false;
+				} else if (resultUpdateImage[0].statusCode != "300187") {
+					this.finishProcess();
+					var message = resultUpdateImage[0].messageError;
+					if (message.indexOf("|") !== -1) {
+						message = message.split("|")[0];
+					}
+					if (!condition) {
+						this.finishProcess();
+						this.errorImage = true;
+						this.errorMessageImage = "(" + resultUpdateImage[0].statusCode + ")" + " " + message;
+					} else {
+						$("#passKeyboard").remove();
+						this.$parent.$refs.changepassref.disabledPass = true;
+						this.$parent.$refs.changepassref.errorPass = true;
+						this.$parent.$refs.changepassref.errorMessagePass = "(" + resultUpdateImage[0].statusCode + ")" + " " + message;
+						$("#f_previousKey").css("border-color", "#ced4da");
+						$("#input-valid-previousKey1").hide();
+						$("#f_newKey").css("border-color", "#ced4da");
+						$("#input-valid-newKey3").hide();
+						$("#input-valid-newKey4").hide();
+					}
+					this.$parent.finishSpinner();
+				}
+				this.$emit('changed-image', resultUpdateImage[0]);
+				return false;
+			}
+			this.$parent.finishSpinner();
+		},		
+		doFinish: function() {
+			this.$emit('finish-change');
+		}
+    }
+})
