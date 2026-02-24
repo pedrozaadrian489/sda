@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Onest';
+    src: url('fonts/Onest-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url('fonts/Onest-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url('fonts/Onest-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* E1227 */
+#loginForm #navbar, .ux-login-form, .ux-login-form button {
+	font-family: Onest !important;
+}
+
+.bodyVue, .bodyVue button, #vue-home th, #vue-home td, .ux-form-redesign, 
+a, span:not(.fas):not(.far), button, h1, h2, h3, h4, h5, h6, p, dt, dd, th, td, label, input, em, select, ul, strong,
+legend, textarea, div.alert, b-form-button, iframe, .tooltip, .ui-textbox-input, #exportHome button.ux-export-excel,
+#exportHome a.ux-export-pdf, #exportHome button.export-print-ux, #result-message {
+    font-family: Onest !important;
+}
+
+#internasAval button.buttonBtaTxAdd {
+	font-size: 13px !important;
+}
+
+a.alertlist-authorization #autoText {
+	font-size: 12px;
+}
+
+form#securityParams dl#labelParamsSecurity dt#nmasc {
+	margin-left: 40px;
+}
+
+/* Fin E1227 */

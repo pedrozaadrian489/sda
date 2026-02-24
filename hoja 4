@@ -1,0 +1,28 @@
+.ep-circle--progress__dot-container[data-v-805790d8] {
+  position:absolute;
+  -webkit-transform-origin:center center;
+  transform-origin:center center
+}
+.ep-circle--progress__dot-container.hidden[data-v-805790d8] {
+  -webkit-transition-duration:0s;
+  -o-transition-duration:0s;
+  transition-duration:0s
+}
+.ep-circle--progress__dot-container>div[data-v-805790d8] {
+  position:relative
+}
+.ep-circle--progress__dot[data-v-805790d8] {
+  -webkit-transition-duration:.2s;
+  -o-transition-duration:.2s;
+  transition-duration:.2s;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  position:absolute;
+  margin:auto;
+  right:0;
+  left:0
+}
+.ep-circle--progress__dot.ep-hidden[data-v-805790d8] {
+  -webkit-transform:scale(0);
+  transform:scale(0)
+}

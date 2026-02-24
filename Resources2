@@ -1,0 +1,293 @@
+/*Sprite*/
+.session ul, .login .session ul, .session-end, .header-logo, .logout-button , .logout-button-process, .session ul li.separation-seccion, .user-data .message, .alertlist .alertlist-icon, .footer-logo-currentBanc, .menufoot .menufoot-icon,
+.ui-recordtable-sortable .ui-recordtable-icon, .ui-modalbox-close-img, .collapsible-panel-tab-icon, .panel-tab-close .collapsible-panel-tab-icon, .expcont-icon {background:url(images/b_avv/sprite_banco.png) no-repeat;}
+.a-color {color:#0059a1;}
+/*LAYOUT*/
+.main-header {
+    background: #E4151C;
+}
+
+/*- HEADER -*/
+.header-logo {
+    width: 257px;
+    height: 55px;
+    margin: 11px 0 0 10px;
+    background: url(images/b_avv/white-logo.svg) no-repeat;
+    background-size: contain;
+}
+/*Session*/
+.session ul li a, .section-session ul li a:link {color:#0059a1;}
+.session ul li.separation-seccion {background-position: -526px 0;}
+.logout-button {background-position: -512px 0;}
+.info-session {color:#FFF;margin:18px 2px 0 0;}
+.button-printScreen-image {background-position:-216px 0; margin-bottom: 10px;}
+.button-printScreen-text {color: #FFF;}
+.session-end {background-position: -504px 0;}
+
+/*- NavHideShow -*/
+/* .NavHideShow {background-color:#0059a1;border-color:#0059A1;} */
+.navHide {background-color: #0059a1;border-color: #0059a1;}
+.navShow {background-color: #0059a1;border-color: #0059a1;}
+
+/*- SIDEBAR -*/
+.user-section {background-color:#0059a1;border-color:#0059A1;}
+.user-data {color:#FFF;}
+.user-data p {}
+.user-data .company {}
+.user-data .message {color:#FFF; background-position: 0 -29px;}
+.user-data .message a {color:#FFF;}
+.user-setting {}
+
+/*Modify*/
+.modify ul li a {color:#0166a2;}
+
+/*alertlist*/
+.alertlist {border:1px solid #a1a1a1;}
+.alertlist .alertlist-authorization .alertlist-icon {background-position: -267px -28px;}
+.alertlist li.disable.alertlist-authorization .alertlist-icon {background-position: -295px -28px;}
+.alertlist li.disable .alertlist-message {color:#aaa;}
+.alertlist .alertlist-notifications .alertlist-icon {background-position: -212px -29px;}
+.alertlist li.disable.alertlist-notifications .alertlist-icon {background-position: -239px -28px;}
+.alertlist li.disable a {text-decoration: none; color:#aaa;}
+.alertlist ul li a {color:#0059a1;}
+
+/*Consolidate*/
+.consolidate table th {color:#0039a6;}
+
+/*Collapsible Table - Parameters List*/
+.param-list { background-image:url(images/bg_param_list.png);}
+.collapsible-panel table th, .param-list dt {color: #003366;}
+
+.collapsible-panel-tab-icon {background-position:-378px -29px;}
+.panel-tab-close .collapsible-panel-tab-icon {background-position:-367px -29px;}
+.ui-state-hover { background: #0059A1;}
+
+/*TABLE*/
+.ui-recordtable-thead th {color: #0166A2; background-color: #EAEAEA; border-left: 1px solid #DDDDDD;}
+.ui-recordtable-thead .ui-recordtable-sortable.ui-recordtable-th-active {background-color: #EAEAEA;}
+.ui-recordtable-sortable .ui-recordtable-icon {background-position: -341px -28px; }
+.ui-recordtable-sortable .ui-recordtable-sortdown {background-position: -323px -28px; }
+.ui-recordtable-sortable .ui-recordtable-sortup {background-position: -332px -28px;}
+.ui-recordtable-table .ui-recordtable-table .ui-recordtable-thead th {background-color: #D3D3D3;}
+.ui-recordtable-table .ui-recordtable-table .ui-recordtable-table .ui-recordtable-thead th {background-color: #BCBCBC;color: #0070AA;}
+.ui-recordtable-trodd:hover, .ui-recordtable-treven:hover, .ui-recordtable-detail-expanded {background: #D7DEE4; }
+
+/*TABLE Doble*/
+.ui-recordtable-thead-doble tr:first-child th {background-color: #0166A2;}
+.ui-recordtable-thead-doble tr th {background-color: #EAEAEA; color: #0166A2;}
+
+/*Pager*/
+.ui-recordtable-pagelink:hover  {background-image: url("images/b_avv/sprite_banco.png"); background-position: 206px -32px; color: #fff;}
+.ui-recordtable-pagelink.ui-recordtable-current {background-image: url("images/b_avv/sprite_banco.png"); background-position: 181px -32px; color: #fff;}
+.ui-recordtable-pagelink,.ui-recordtable-movebutton {color: #333;}
+.ui-recordtable-movebutton.ui-recordtable-disabled {color: #999}
+
+/*Detail Table*/
+.detail-table tr.highlight {color: #0076BD}
+
+/*Header Detail*/
+.ui-modalbox-content .head-detail-table th {background-color: #EAEAEA;}
+
+/*Footer*/
+.footer {
+    background: #E4151C;
+}
+.menufoot ul li {color:#0059a1;}
+.menufoot ul li a {color:#0059a1;}
+.menufoot-support .menufoot-icon {background-position: -533px 0;}
+.menufoot-help .menufoot-icon {background-position: -555px 0;}
+.menufoot-terms .menufoot-icon {background-position: -577px 0;}
+.footer-logo-veriSign {left:4%;}
+.footer-logo-vigi {
+    width: 0px;
+    top: 0px !important;
+    padding: 91px 0px 0px 23px !important;
+}
+.footer-logo-ath {left:41%;}
+.footer-logo-aval {left:54%;}
+.footer-logo-currentBanc {
+    width: 198px;
+    right: 4%;
+    top: 32px;
+    background: url(images/b_avv/white-logo.svg) no-repeat;
+    background-size: contain;
+}
+
+/*Menu*/
+.ui-menu {
+    border-color: #E4151C;
+    /* If a gradient is actually needed, use the standard property: */
+    background: #E4151C;
+}
+
+.ui-menu-h3-text:hover {background-color: #6e0101;}
+
+.ui-menu-h ul .subnav, .ui-menu-h ul .subnavXL {border-color:#640000;}
+.ui-menu-h ul .subnav .subLevelTitle, .ui-menu-h .ui-menu-ul-2>li>a.ui-menu-a {color:#0059a1;}
+
+.body-content h1 {color:#003366;}
+
+/*MODALBOX*/
+.ui-modalbox-close-img, .logout-button-process {background-position: -350px -28px;}
+.ui-modalbox-close-text {color: #0076BD;}
+.ui-modalbox-title {color: #0076BD;}
+.ui-modalbox-content table tr:hover {background: #D7DEE4;}
+.ui-modalbox-content .param-list { background-image:url(images/bg_param_list_modal.png);}
+.ui-modalbox-content h1 {color:#3A8BFD;}
+
+/*MODALBOX - LINK HELP*/
+.link-help .help-icon {background:url(images/b_avv/link_help/icon-help_bavv.png) no-repeat;}
+.link-help .text-help {font-size: 13px; text-align: right; float: right;color:#003366;}
+.help-interactivo-icon  {background-image:url(images/b_avv/help/interactivo.png) ; background-repeat: no-repeat;}
+.help-manual-icon {background-image:url(images/b_avv/help/manual.png)  ; background-repeat: no-repeat;}
+.help-audiovisual-icon {background-image:url(images/b_avv/help/audiovisual.png); background-repeat: no-repeat;}
+.modal-help .help-base-color-icon {background-image:url(images/b_avv/help/base-azul.png) ;}
+
+/*FORM*/
+.body-content legend, .body-content h3 {color:#1D599F;}
+.hash-table tr:hover {background-color: #D7DEE4 !important;}
+.hash-table tr.highlight th {color: #1d599f; background-color: #a9a9a9; }
+.hash-table .highlight td {color: #1d599f; font-weight: bold; background-color: #a9a9a9}
+.hash-table tr.highlight:hover th, .hash-table tr.highlight:hover td{background-color: #D7DEE4;}
+.list-data dt {color:#0076BD;}
+.ui-excelsys-widget .ui-textbox-input:focus, .ui-excelsys-widget .ui-combobox-input:focus, .body-content textarea:focus {border-color:#0059A1;}
+.ui-combobox-input:focus + .ui-combobox-button {border-color: #0059A1 #0059A1 #0059A1 #666666;border-style: solid;border-width: 1px;}
+
+/*File Request*/
+
+.filerequest label.ui-combobox-label { color: #0039A6;}
+
+/*DATEPICKER*/
+.ui-datebox-header { background-color: #0059A1; border: #011E47;}
+.ui-datebox-default {color:#0059A1;}
+a.ui-datebox-default-active {background: #EAEAEA !important; border-color: #011E47 !important; color: #011E47 !important;}
+a:hover.ui-datebox-default {border: 1px solid #011E47; color: #011E47;}
+.ui-datebox-button {background-color: #0059A1;}
+.ui-datebox-button:hover {background-color: #003662;}
+
+/*Panelbox*/
+.ui-panelbox-option .ui-panelbox-option-header, .ui-panelbox-option .ui-panelbox-option-header:hover {border-top:0.063em solid #93C0FF; background-color: #F4F4F4;}
+.ui-panelbox-option-header.ui-panelbox-option-active, .ui-panelbox-option .ui-panelbox-option-header:hover  {background-color: #D7DEE4; }
+
+.expcont-expand .expcont-icon {background-position: -367px -28px;}
+.expcont-contract .expcont-icon {background-position: -378px -28px;}
+.expcont-text {color: #0166A2;}
+
+/* Acordeón */
+dl.ui-panelbox-autocollapsible a.ui-panelbox-option-header, dl.ui-panelbox-autocollapsible a.ui-panelbox-option-header:hover  {background-color: #EFEFEF; border-color: #1D599F;}
+
+/*Tabs*/
+.ui-tabs .ui-tabs-list a:hover {background-color: #0059A1;}
+
+/*Transaction Date Results*/
+.data-transaction .hash-table th {color: #003366; font-weight: normal;}
+.data-transaction .hash-table tr th, .data-transaction .hash-table tr td {border-color: #EFEFEF;}
+.data-transaction-dialog-detail legend {color: #3A8BFD;}
+
+/*CONTEXTUAL MENU*/
+.contextual-menu h1 {color: #0039A6;}
+
+/*DOCUMENT HOME*/
+.logo-doc-info {background-image:url(images/b_avv/red-logo.svg); width: 200px; height: 43px; margin-bottom: 15px;}
+
+/*LOGIN Banner Zone*/
+.login-banner-zone1 {width:655px;height:182px; overflow:hidden; border-radius:.375em; }
+.login-banner-zone1, .helper-link {margin-bottom:.938em;}
+.login-banner-zone2 {width:320px;height:242px;overflow:hidden; border-radius:.375em; float:left; margin-right:15px; }
+.login-banner-zone3 {width:320px;height:242px;overflow:hidden; border-radius:.375em; margin-left:18px; padding:0px; }
+
+/*LOGIN email*/
+.helper-email {background-color:#0059A1;}
+
+/*LOGIN phone*/
+.helper-phone .helper-link-icon {background-image: url("images/b_avv/sprite_banco.png"); background-position: -445px -30px;}
+
+/*SIDE BAR Zone*/
+.side-bar-zone1 {display:none; width:220px; height:40px; margin-bottom:.500em;}
+.side-bar-zone2 {display:none; width:220px; height:80px; margin-bottom:.500em;}
+.side-bar-zone3 {display:none; width:220px; height:110px; overflow:hidden; border-radius:.375em;  margin-bottom:.500em;}
+.side-bar-zone4 {display:none; width:220px; height:125px; overflow:hidden; border-radius:.375em; margin-bottom:.500em;}
+.side-bar-zone5 {display:none; width:220px; height:195px; margin-bottom:.500em;}
+.side-bar-zone6 {display:none; width:220px; height:240px; margin-bottom:.500em;}
+.side-bar-zone7 {display:none; height:70px;}
+.side-bar-zone14{ max-height:720px; max-width:720px; overflow: hidden;}
+.zone14Modal {display:none; max-height:720px; max-width:720px; overflow: scroll;}
+
+.login-fieldset > h2, .body-content h2{
+    color: #003366;
+}
+h2.compl_subtitle {color: #1D599F;}
+h2.action-subtitle {color: #0076bd;}
+h3.input-title-form {color: #001F49;}
+
+.helper-link h1 {
+    color: #FFFFFF;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0.7em 0;
+}
+
+.helper-email .helper-link-icon {float:left}
+
+.modalbox h1{
+    font-size:1em;
+}
+
+.session-close-label {color: #7A9BB6;}
+
+/*wizard*/
+.wizard-box .step.selected .step-text .step-number {background-color: #0039A6;}
+.wizard-box .step.selected .step-text  a {color: #0039A6;}
+
+li.bread-menu-active{ background-color: #314FD2; border-radius: 15px;}
+.bread-menu-active a{color: #FFF!important;}
+#breadcrumbContent .pointer-service {color: #6e0101;}
+
+/* E752 Widget Process */
+
+ 	.project-percent, .project-percent-zero {
+    height: 20px;
+    background-color: #011E47;
+    border-radius: 30px;
+    position: relative;
+    width: 0;
+    transition: 2s linear;
+}
+#WidgetProcessMain {
+border-width:1px;border-style:solid;border-color:#0059a1;border-block-start: none;
+}
+#bordenull{border-style:solid;border-color:#0059a1;border-block-start: none;}
+
+/*   FIN E752 Widget Process */
+.spinner-border {
+	color: #C30C24;
+	}
+
+
+.welcome-heading {
+    color: #000000;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0;
+    margin-top: 12px;
+}
+
+.section-image {
+    margin-bottom: 24px
+}
+
+.section-subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0
+}
+
+.idMenu-1 {width: 14%; !important;}
+.idMenu-2 {width: 14%; !important;}
+.idMenu-3 {width: 14%; !important;}
+.idMenu-4 {width: 14%; !important;}
+.idMenu-5 {width: 14%; !important;}
+.idMenu-6 {width: 14%; !important;}
+.idMenu-7 {width: 14%; !important;}

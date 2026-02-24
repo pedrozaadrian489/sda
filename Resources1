@@ -1,0 +1,121 @@
+/*LOGIN*/
+.maintop-wrap-fixed {position: static;}
+.login .main-content {margin:1.25em 0 0;min-width:62.313em;}
+.login .body-content, .login .main-header-wrap, .login .footer-logo-container {margin:0 auto;width:990px;}
+.col-login-fieldset, .col-info {float:left;}
+.col-login-fieldset {width:20em;margin-right:15px;}
+.col-info {width:40.938em;}
+.login .session ul li {float:right;margin-right: .938em; }
+
+/*Login form field*/
+.login-fieldset {min-height:9.563em;background-color:#f4f4f4;padding:.625em .625em 2.188em;position:relative;}
+.login-fieldset p, .login-fieldset .ui-textbox-label, .login-fieldset .ui-textbox-message, .ui-textbox-message2, .check-row, .check-row a, .login-fieldset dt, .login-fieldset dd, .login-fieldset h3,.security-fieldset h4 {color:#999999;}
+.login-fieldset p, .check-row label, .check-row a, .link-readmore, .login-fieldset dt, .login-fieldset dd,.login-fieldset span.ui-validation-error {font-size:.688em;}
+.login-fieldset h2, .login-fieldset h3 {font-weight:bold;display:block;}
+.login-fieldset h2 {font-size: 1em;color:#003279;margin-bottom:.8em;line-height:1.5em;}
+.login-fieldset h3 {font-size:.838em;margin-bottom:1.2em;}
+.login-second-row {margin-left:0px; padding:0px; width:660px;}
+.login-fieldset .ui-form-row {margin-bottom:.8em;position: relative;}
+.login-fieldset, .helper-link {border:2px solid #CCCCCC; border-radius:.313em;}
+.helper-link {height:2.688em;vertical-align:middle;padding-left:.688em;display:table-cell;}
+.helper-suggest {background-color:#ffffbb;}
+.helper-email .helper-link-text {color:#FFFFFF;font-size:.7em;font-weight:bold;}
+.helper-email {padding-left:12px; padding-right:12px; padding-top:5px; padding-bottom:12px; line-height: 16px;}
+.helper-phone {background-color:#FFFFFF; color: #666666;}
+.helper-link-row {display:table-row;padding-bottom:10px;}
+.helper-link-list {display:table;border-collapse:separate;border-spacing:0 15px;width:100%;}
+.helper-link-icon {vertical-align:middle;display:inline-block;margin-right:.3em; width: 32px; height: 32px;}
+.helper-term .helper-link-icon {background-position: 0 0;}
+.helper-suggest .helper-link-icon {background-position: -32px 0;}
+.helper-email .helper-link-icon {background-position: -64px 0;}
+.helper-term .helper-link-text, .helper-suggest .helper-link-text {color:#727272;font-size:.688em;font-weight:bold;}
+.text-entry, .text-entry a {color:#727272;}
+.text-entry {vertical-align:middle;}
+.text-entry:first-child {margin-bottom:1.75em;}
+.text-entry h3 {margin-bottom:.5em;font-weight:bold;font-size:.95em;}
+.text-entry .text-entry-main-header {font-size:1em;}
+.text-entry-icon {background:url(../images/login/login_icon_paraph.png) no-repeat transparent;height:33px;width:33px;display:inline-block;vertical-align:middle;margin-right:.668em;}
+.login-fieldset .ui-textbox {/*margin-bottom:.8em;*/}
+.login-fieldset .input-with-icon .ui-textbox {}
+.login-fieldset .ui-textbox-label {width:38%;font-weight:bold;padding-top:.5em;float:left;}
+.login-fieldset .input-with-icon .ui-textbox-label {width:50%;}
+.login-fieldset .input-disabled input:read-only { background-color: #CCCCCC; }
+.login-fieldset .ui-textbox-message {font-size:.625em;display:block;text-align:right;line-height: 18px;}
+.login-fieldset .ui-textbox-message2 {font-size:.625em;display:block;text-align:left;line-height: 18px;}
+.login-fieldset .ui-textbox-input {height:1.75em;vertical-align:middle;border-width:2px;width: 8em; /*margin-left: 2px;*/}
+/*Check Row*/
+.check-row {font-weight:bold;}
+.check-row input[type=checkbox] {vertical-align:middle;margin: 0 5px 6px 0;float:left;}
+.check-row a {text-decoration:underline;font-weight: normal;}
+.check-row .ui-validation-error {float:left;}
+.check-row input[type=checkbox].ui-validation-error {}
+.login-fieldset span.ui-validation-error {clear:left;color:#F00;font-weight: normal;padding: 2px 0 3px 20px;background: url("images/error_icon.png") left 4px no-repeat;font-style: italic;display: block!important; margin-right: 5px; line-height: 16px;}
+.ui-combobox-input-container, .ui-textbox-input-container {width: 50%;}
+.input-with-icon .ui-combobox-input-container, .input-with-icon .ui-textbox-input-container {width:50%;}
+/*.login-fieldset span.ui-validation-error:before { content: "* " }*/
+.check-row label, .check-row a {vertical-align: top;}
+.login-container-buttons {position:absolute;bottom:10px;right:10px;}
+.login-container-buttons .ui-flowbutton-text {font-weight: bold;}
+.login-container-buttons .ui-flowbutton-textLogin {font-weight: bold;}
+.login-container-buttons .ui-flowbutton {float: right;margin-left: .313em;}
+.link-readmore {text-decoration: underline;font-style: italic;padding-top: 1em;display: block;}
+.adversy-browsers {font-size: .625em;color:#999999;display: block;}
+.adversy-browsers dt {text-decoration: underline;margin-bottom: .3em;}
+.login-icon-input {width: 43px;height: 28px;display: block;position: absolute;top: 0;right: 0;}
+
+.login-icon-person {background-position: -128px 0;}
+.login-icon-token {background-position: -171px 0 ;}
+.login-fieldset dl {margin-bottom: 1em;}
+.login-fieldset dt, .login-fieldset dd{float:left;display: block;width: 38%;}
+.login-fieldset dt {font-weight: bold;}
+.login-fieldset dd {font-weight: normal;}
+
+.security-fieldset {}
+.security-fieldset .secure-image {float: left;margin: 0 10px 0 0;}
+.security-fieldset h4 {font-weight: bold;font-size: .688em;margin-bottom: 10px;}
+.security-fieldset p {color: #bbb;}
+.security-text p { color: #999999; display: inline; float: left; font-size:10px; line-height:15px; font-weight: bold;}
+.security-text { color: #999999; /*display: inline; float: left;*/ font-size:10px; line-height:15px; font-weight: bold; text-align: center; }
+.text-special {vertical-align: top;}
+
+.image-content-secure {padding-top: 0.1em;}
+.combo-Fix ul {
+    width: 188px !important;
+}
+ .login-fieldset #ownKeyChangeForm .ui-form-row , .login-fieldset #ownKeyChangeForm .ui-form-row {margin-bottom:.0em;}
+#ownKeyChangeForm .ui-combobox-input-container {
+    width: 100%;
+}
+#ownKeyChangeForm .ui-form-row-2col-selimage .ui-form-col:first-child {
+    width: 24%;
+}
+#ownKeyChangeForm .ui-form-row-2col-selimage .ui-form-col {
+ width: 71%;
+}
+.combo-Fix{
+    padding-top: 0.0em !important;
+}
+.login-fieldset h3 {
+    font-size: 0.838em;
+    margin-bottom: 0em;
+}
+.image-secure-login {
+     border: 1px solid #999999;
+}
+#ownKeyChangeForm .image-selected {
+    border: 1px solid #FF0000 !important;
+    box-shadow: 4px 4px 5px #888888;
+}
+#ownKeyChangeForm .common-text{
+    font-size: 0.8em;
+}
+
+.txt_IpDate {margin:15px 0px 0 0;}
+
+#resolutionWarning {position: relative;	border: 1px solid #A1A1A1;border-radius: 5px;background-color: #FBFFC2;	margin: 0 auto; display: none; height: 38px;}
+#resolutionWarning span.message-warning {padding: 8px 0px 2px 34px;	margin: 0 4px 5px 0;font-size: 11px;clear: left;color: #A6A6A6;	font-weight: normal; display: block;	margin-right: 5px;line-height: 16px;}
+#resolutionWarning span.message-icon { background-position: -3px -152px;height: 18px;width: 18px;margin-right: .625em;left: .625em;}
+/*SIDE BAR Zone*/
+.side-bar-zone15{max-height:1000px; max-width:1000px; overflow: hidden;}
+.zone15Modal {display:none; max-height:1000px; max-width:1000px; overflow: scroll;}
+

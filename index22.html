@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<script>
+		if ("false" == "true" || "false" == "true") {
+			var utagURL = "https://tags.tiqcdn.com/utag/NOT FOUND CONSTANT/NOT FOUND CONSTANT/NOT FOUND CONSTANT";
+	
+			var head = document.getElementsByTagName('head')[0];
+			var js = document.createElement("script");
+			js.type = "text/javascript";
+			js.async = "";
+			js.src = utagURL + '/utag.js';
+			js.onerror = function() {
+				console.error('Error cargando scripts de tealium ' + this.src);
+			};
+	
+			var js2 = document.createElement("script");
+			js2.type = "text/javascript";
+			js2.src = utagURL + '/utag.sync.js';
+			js2.onerror = function() {
+				console.error('Error cargando scripts de tealium ' + this.src);
+			};
+			head.appendChild(js);
+			head.appendChild(js2);
+		}
+	</script>
+
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/custompolyfill-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202103021433&file=node_modules/core-js-bundle/minified.min.js&type=js"></script>
+    <script type="text/javascript" src="Resources?time=202103021433&file=node_modules/regenerator-runtime/runtime.min.js&type=js"></script>
+    <script type="text/javascript" src="Resources?time=202103021433&file=node_modules/intersection-observer/intersection-observer.min.js&type=js"></script>
+    
+    <link href="Resources?time=202602132121&file=css/base.css&type=css" rel="stylesheet" type="text/css" />
+    <link href="Resources?time=202602132121&file=css/base-login.css&type=css" rel="stylesheet" type="text/css" />
+    <link href="Resources?time=202602132121&file=css/base-avv.css&type=css" rel="stylesheet" type="text/css" />
+
+    <link href="Resources?time=202602132121&file=css/vue/baseux.css&type=css" rel="stylesheet"  type="text/css"/>
+    <link href="Resources?time=202602132121&file=css/vue/_styleavv.css&type=css" rel="stylesheet" type="text/css"/>
+    
+    <link type="text/css" rel="stylesheet" href="Resources?time=202102231923&file=node_modules/bootstrap/dist/css/bootstrap.min.css&type=css"/>
+    <link type="text/css" rel="stylesheet" href="Resources?time=202102231923&file=node_modules/bootstrap-vue/dist/bootstrap-vue.min.css&type=css"/>
+    
+    <link type="text/css" rel="stylesheet" href="Resources?time=202102231923&file=node_modules/fortawesome/css/all.min.css&type=css"/>
+
+     
+    <script type="text/javascript" src="Resources?time=202102231923&file=node_modules/vue/dist/vue.min.js&type=js"></script> 
+    
+    <script src="Resources?time=202102231923&file=node_modules/bootstrap-vue/dist/bootstrap-vue.min.js&type=js"></script>
+    
+    <script type="text/javascript" src="Resources?time=202602132121&file=js/lib/vuelidate.min.js&type=js"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=js/lib/validators.min.js&type=js"></script>
+
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/lib/base64-min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=js/lib/libs.min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=js/lib/component-utils.min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/history-min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/utilsFE-min.js&type=js" defer="defer"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/jquery.alphanumeric.FE-min.js&type=js" defer="defer"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=js/component/component-combobox.min.js&type=js" defer="defer"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=js/component/component-modalbox.min.js&type=js" defer="defer"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/rsa-min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/token-min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/fingerprint-min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/loader_prelogin-min.js&type=js"></script>
+	<script type="text/javascript" src="Resources?time=202203231421&file=node_modules/vue-otp-2/dist/vue-otp-2.min.js&type=js&LANG=es"></script>
+	<script type="text/javascript" src="Resources?time=202203231421&file=node_modules/vue-ellipse-progress/vue-ellipse-progress.umd.min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/generals/vueStatusHandler-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/layout/vueNavbar-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/layout/vueFooter-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/layout/vueTokenChallenge-min.js&type=js&LANG=es"></script>
+
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/generals/vueInfo-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/generals/vueAlert-min.js&type=js&LANG=es"></script>
+	<script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/login/vueSpinner-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=js/container/vue/login/vueChangepass.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/login/vueAddIP-min.js&type=js&LANG=es"></script>
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/login/vueCompatibility-min.js&type=js&LANG=es"></script>
+
+    <script type="text/javascript" src="Resources?time=202602132121&file=_min/js/container/vue/vueModalBox-min.js&type=js&LANG=es" defer="defer"></script>
+    
+    <script type="text/javascript" src="Resources?time=202102231923&file=node_modules/vue-multiselect/dist/vue-multiselect.min.js&type=js&LANG=es"></script>
+    <link href="Resources?time=202102231923&file=node_modules/vue-multiselect/dist/vue-multiselect.min.css&type=css" rel="stylesheet" type="text/css">
+	<link href="Resources?time=202602132121&file=css/component/component-modalbox.min.css&type=css" rel="stylesheet" type="text/css"/>
+    <link href="Resources?time=202602132121&file=css/keyboard/vue-touch-keyboard.css&type=css" rel="stylesheet"  type="text/css"/>
+    <script type="text/javascript" charset="utf-8" src="Resources?time=202602132121&file=_min/js/container/vue/keyboard/vueKeyboard-min.js&type=js&LANG=es"></script> 
+   	<link href="Resources?time=202602132121&file=css/vue/baseux-avv.css&type=css" rel="stylesheet" type="text/css" />
+    <title>
+        
+        
+        Banco AV Villas
+        
+    </title>
+    <span id="bankNewLogin" style="display: none;">bankBAVV</span>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var isPSE = "";
+	noBackButtonBrowser(isPSE);
+})
+    
+    var msie = (ua = window.navigator.userAgent.indexOf("MSIE ") >=0);    
+    var resp = (msie || !!navigator.userAgent.match(/Trident.*rv\:11\./))?true:false;
+    var isIE11 = navigator.userAgent.indexOf("Trident/7.0");
+
+    if(resp && isIE11 == -1){
+        var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    	link.type = 'image/x-icon';
+    	link.rel = 'shortcut icon';
+    	link.href = 'images/favicon_BAVV_IE.ico';
+    	document.getElementsByTagName('head')[0].appendChild(link);
+    }else{
+        var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    	link.type = 'image/x-icon';
+    	link.rel = 'shortcut icon';
+    	link.href = 'images/favicon_BAVV.ico';
+    	document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    
+    if($("#bankNewLogin").html() == "bankBAVV") { // Validacion para cargar hoja de estilos E1227
+        var fontLink = document.createElement("link");
+        fontLink.type= "text/css";
+        fontLink.rel = "stylesheet";
+        fontLink.href = "Resources?time=202602132121&file=css/style-font-fam-avv.css&type=css";
+        document.getElementsByTagName('head')[0].appendChild(fontLink);
+    } 
+    
+</script>
+  
+    <script type="text/javascript">
+var check = "";
+$(document).ready(function() {
+	$("[class^='login-banner-zone']").css('overflow','hidden');
+    getAllPublicity();
+
+
+    $('#contentPublicity').on('contentchanged', function() {
+
+        $('#modalContentPublicity .pubAct_next').each(function() {
+            $(this).on('click', function(event) {
+            	event.preventDefault();
+            	$(this).off('click');
+            	setActionPublicityContent("next",this);
+            });
+        });
+
+        $('#modalContentPublicity .pubAct_previus').each(function() {
+            $(this).on('click', function(event) {
+            	event.preventDefault();
+            	$(this).off('click');
+            	setActionPublicityContent("previus",this);
+            });
+        });
+
+        $('#modalContentPublicity .pubAct_cancel').each(function() {
+            $(this).on('click', function(event) {
+            	event.preventDefault();
+            	$(this).off('click');
+            	setActionPublicityContent("cancel",this);
+            });
+        });
+
+        $('#modalContentPublicity .pubAct_accept').each(function() {
+            $(this).on('click', function(event) {
+            	event.preventDefault();
+            	$(this).off('click');
+            	setActionPublicityContent("accept",this);
+            });
+        });
+
+        $('#modalContentPublicity .pubAct_saveContact').each(function() {
+            $(this).on('click', function(event) {
+            	event.preventDefault();
+            	$(this).off('click');
+            	setActionPublicityContent("saveContact",this);
+            });
+        });
+    });
+});
+
+function getAllPublicity() {
+    var json = "/icbs-web/Ajax?AID=CAMPAIGN_GET_PUBLICITIES_LOGIN&RQE=FAC0019C79B65CA4&CRFT=fac0019c79b6348e";
+    $.ajax({
+            url: json,
+            type: 'GET',
+            cache: true
+        })
+        .done(function(data) {
+            publicities = data;
+            if (Array.isArray(publicities)) {
+				window.sessionStorage.setItem("publicities", JSON.stringify(publicities));
+                loadPublicitiesZones(publicities);
+            }
+        })
+        .fail(function() {});
+
+}
+
+function getPublicity(zoneName) {
+    var json = "/icbs-web/Ajax?AID=CAMPAIGN_GET_PUBLICITY_LOGIN&RQE=FAC0019C79B65CA5&CRFT=fac0019c79b6348e&zoneName=" + zoneName;
+    
+    $.ajax({
+            url: json,
+            type: 'GET',
+            cache: true
+        })
+        .done(function(data) {
+            if(Array.isArray(data) && data.length >= 1 && data[0]["code"] !== "" && (typeof data[0]["code"]) == "string") {
+        		updatePublicity(data[0]);
+				if (selectedPublicity["id"] !== data[0]["id"]) {
+       		 		loadPublicitiesZones(data);
+            	}
+				else {
+					reloadSamePublicity(data);
+				}
+       	 	}
+            else {
+            	console.log("No se ha podido obtener una publicidad para la zona: \""+zoneName+"\"");
+				return ;
+            }
+        })
+        .fail(function() {});
+
+}
+
+function showZone15(zoneName,html){
+	$('#'+zoneName).append('<div id="PopupZone15" class="modalbox zone15Modal">'+ html +' </div>');
+	$("#lblPopup").modalbox({
+	    source: "#Zone15",
+	    type : 'selector',
+	    title: "",
+	    clickOut: false,
+	    modalFixed: true
+	});
+    $("#lblPopup").modalbox("show");
+    $("#Zone15").show();
+    $("#modallblPopup .ui-modalbox-window").css("width", "auto");
+    $("#modallblPopup .ui-modalbox-window").css("padding-top","30px");
+    setTimeout(function(){
+		document.getElementById("PopupZone15").offsetParent.setAttribute("id","Idzone15");
+    	$("#modallblPopup" ).appendTo("#Zone15");
+    	hideLoadingOverlay();
+    },500);
+     
+    setTimeout(function(){
+		var height = $(".ui-modalbox-window").height();
+		var wheight=$(window).height();
+		if(height>wheight){
+			$(".ui-modalbox-window").css({
+			    position: 'absolute',
+			    top: '20px'
+			});
+		}
+	},1000);
+}
+function reloadSamePublicity(json) {
+	for (var i = 0; i < json.length; i++) {
+		var zoneName = json[i]["zoneName"];
+		var divName = '#' + zoneName;
+		$(divName).show();
+	
+		var htmlToReload = "";
+		for (var i = 0; i < publicities.length; i++) {
+			if (zoneName == publicities[i]["zoneName"]) {
+				htmlToReload = publicities[i]["text"];
+				break;
+			}
+		}
+		if (zoneName=="Zone15"){
+			$(divName).empty();
+    		showZone15(zoneName,htmlToReload);
+    		associateEvents(zoneName);
+		}
+		else{
+			printLoading($(divName), "large");
+			setTimeout(function () {
+				$(divName).empty();
+				$(divName).append(htmlToReload);
+				associateEvents(zoneName);
+			}, 200);
+		}
+	}
+}
+
+function loadPublicitiesZones(json) {
+    for (var i = 0; i < json.length; i++) {
+		var divName = '#' + json[i]["zoneName"];
+        $(divName).show();
+        printLoading($(divName), "large");
+        loadpublicity(json[i]);
+    }
+}
+
+function findPublicity(json, id) {
+    for (var i = 0; i < json.length; i++) {
+        if (json[i]["zoneName"] == id) {
+            return json[i];
+        }
+    }
+    return null;
+}
+
+function updatePublicity(jsonNew){
+	for (var i = 0; i < publicities.length; i++) {
+        if (jsonNew["zoneName"] == publicities[i]["zoneName"]) {
+			var textoOrig = publicities[i]["text"];
+			publicities[i] = JSON.parse(JSON.stringify(jsonNew));
+			publicities[i]["text"] = textoOrig;
+			break;
+        }
+    }
+}
+
+
+function loadpublicity(jsonObj) {
+    var urlPublicity = "/icbs-web/Ajax?AID=CAMPAIGN_TEMPLATE&RQE=FAC0019C79B65CA6&CRFT=fac0019c79b6348e";
+    $.ajax({
+            url: urlPublicity,
+            type: 'GET',
+            cache: true,
+            async: true,
+            data: {
+                "TemplateName": jsonObj.currentContentName,
+                "CampaignCode": jsonObj.code
+            }
+        })
+        .done(function(data) {
+			var zoneName = jsonObj["zoneName"];
+			for (var i = 0; i < publicities.length; i++) {
+				if (jsonObj["zoneName"] == publicities[i]["zoneName"]) {
+					publicities[i]["text"] = data;
+					break;
+				}
+			}
+			if (zoneName=="Zone15"){
+				check = jsonObj["checkClose"];
+				showZone15(zoneName,data);
+
+window.addEventListener("click", function(event) {
+	if(check=="false"){
+			if (!(event.target.id == "Idzone15" || $(event.target).parents("#Idzone15").length)) {
+			      $("#lblPopup").modalbox("close");
+		    }
+		}
+});
+
+window.addEventListener("keyup",function(e){
+	if(e.keyCode==27 && jsonObj.checkClose == "false") {
+		modallblPopup.style.display="none";
+	}
+});
+			}else
+				{
+					$('#' + zoneName).empty();
+					$('#' + zoneName).append(data);
+				}
+            associateEvents(zoneName);
+
+        })
+        .fail(function(data) {});
+}
+
+function associateEvents(divName) {
+	$('#'+divName+' .pubAct_next').each(function() {
+        $(this).on('click', function(event) {
+        	event.preventDefault();
+            var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+            $(this).off('click');
+        	setActionPublicityZone(idDivPub, "next",this);
+        });
+    });
+
+    $('#'+divName+' .pubAct_previus').each(function() {
+        $(this).on('click', function(event) {
+        	event.preventDefault();
+            var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+            $(this).off('click');
+        	setActionPublicityZone(idDivPub, "previus",this);
+        });
+    });
+
+    $('#'+divName+' .pubAct_cancel').each(function() {
+        $(this).on('click', function(event) {
+        	event.preventDefault();
+            var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+            $(this).off('click');
+        	setActionPublicityZone(idDivPub, "cancel",this);
+        });
+    });
+
+    $('#'+divName+' .pubAct_accept').each(function() {
+        $(this).on('click', function(event) {
+        	event.preventDefault();
+            var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+            $(this).off('click');
+        	setActionPublicityZone(idDivPub, "accept",this);
+        });
+    });
+
+    $('#'+divName+' .pubAct_saveContact').each(function() {
+        $(this).on('click', function(event) {
+        	event.preventDefault();
+            var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+            $(this).off('click');
+        	setActionPublicityZone(idDivPub, "saveContact",this);
+        });
+    });
+}
+
+function extractInputsForm(nameDivZone) {
+	var objResult = {};
+	$("#"+nameDivZone + " :input").each(function() {
+		if (this.name != null && this.name != "")
+			objResult[this.name] = this.value;
+	});
+	return objResult;
+}
+
+function setActionPublicityZone(div, action, clickedElement) {
+    var pub = findPublicity(publicities, div);
+    var order = pub["currentOrder"];
+    var pubCode = pub["code"];
+    selectedPublicity = JSON.parse(JSON.stringify(pub));
+
+    var url = "/icbs-web/Ajax?AID=CAMPAIGN_ACTION_PUBLICITY_LOGIN&RQE=FAC0019C79B65CA7&CRFT=fac0019c79b6348e&publicityAction="+action+"&zoneName="+div+"&currentOrder="+order+"&code="+pubCode;
+
+    var extraData = extractInputsForm(div);
+    $.ajax({
+            url: url,
+            method: 'POST',
+            async: false,
+            data: extraData
+        })
+        .done(function(data) {
+        	if(!Array.isArray(data)){
+        		console.log("Error al realizar una acción sobre una publicidad");
+				return;
+			}
+        	$('#contentPublicity').empty();            
+           
+            var urlContent = "/icbs-web/Ajax?AID=CAMPAIGN_TEMPLATE&RQE=FAC0019C79B65CA8&CRFT=fac0019c79b6348e";
+            if (data.length >= 1 && data[0]["code"] !== "" && (typeof data[0]["code"]) == "string") {
+            	selectedPublicity = JSON.parse(JSON.stringify(data[0]));
+            	
+            	
+            	$.ajax({
+	    	            url: urlContent,
+	    	            type: 'GET',
+	    	            cache: true,
+	    	            async: false,
+	    	            data: {
+	    	                "TemplateName": data[0].currentContentName,
+	    	                "CampaignCode": data[0].code
+	    	            }
+    	        	})
+                    .done(function(view) {
+                        $('#contentPublicity').append(view);
+                        $('#contentPublicity').trigger('contentchanged');
+
+                        showLightboxPublicityLogin();
+
+                    })
+                    .fail(function(view) {});
+            } else {
+                getPublicity(selectedPublicity["zoneName"]);
+            }
+            activateEventZone(div,clickedElement,action);
+        })
+        .fail(function(data) {
+        	activateEventZone(div,clickedElement,action);
+        });
+}
+
+function activateEventZone(idDivPub,clickedElement,action){
+ 	
+	setTimeout(function() {
+    	$(clickedElement).on('click',function(event) {
+    		event.preventDefault();
+			var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+			$(this).off('click');
+			setActionPublicityZone(idDivPub,action, this);
+        });
+ 	}, 500);
+}
+
+function activateEventContent(clickedElement,action){
+ 	
+	setTimeout(function() {
+    	$(clickedElement).on('click',function(event) {
+    		event.preventDefault();
+			var idDivPub = $(this).parents("[class^='login-banner-']")[0].id;
+			$(this).off('click');
+			setActionPublicityContent(action, this);
+        });
+ 	}, 500);
+}
+
+
+function setActionPublicityContent(action,clickedElement) {
+    var idDivPub = selectedPublicity["zoneName"];
+    var order = selectedPublicity["currentOrder"];
+    var pubCode = selectedPublicity["code"];
+
+    if (order == 2 && action == "previus") {
+    	hideLightboxPublicityLogin();
+    }
+    
+    var url = "/icbs-web/Ajax?AID=CAMPAIGN_ACTION_PUBLICITY_LOGIN&RQE=FAC0019C79B65CA9&CRFT=fac0019c79b6348e&publicityAction="+action+"&zoneName="+idDivPub+"&currentOrder="+order+"&code="+pubCode;
+
+    var extraData = extractInputsForm("contentPublicity");
+    
+    $.ajax({
+            url: url,
+            method: 'POST',
+            cache: true,
+            async: true,
+            data: extraData
+        })
+        .done(function(data) {
+        	if(!Array.isArray(data)){
+        		console.log("Error al realizar una acción sobre una publicidad");
+				return ;
+            }
+            $('#contentPublicity').empty();
+            var urlContent = "/icbs-web/Ajax?AID=CAMPAIGN_TEMPLATE&RQE=FAC0019C79B65CAA&CRFT=fac0019c79b6348e";
+            if (data.length >= 1 && data[0]["code"] !== "" && (typeof data[0]["code"]) == "string") {
+            	selectedPublicity = JSON.parse(JSON.stringify(data[0]));
+            	$.ajax({
+	    	            url: urlContent,
+	    	            type: 'GET',
+	    	            cache: true,
+	    	            async: false,
+	    	            data: {
+	    	                "TemplateName": data[0].currentContentName,
+	    	                "CampaignCode": data[0].code
+	    	            }
+    	        	})
+                    .done(function(view) {
+                        $('#contentPublicity').append(view);
+                        $('#contentPublicity').trigger('contentchanged');
+                        showLightboxPublicityLogin();
+                    })
+                    .fail(function(view) {});
+            } else {
+                hideLightboxPublicityLogin();
+                getPublicity(selectedPublicity["zoneName"]);
+            }
+            activateEventContent(clickedElement,action);
+        })
+        .fail(function(data) {
+        	activateEventContent(clickedElement,action);
+        });
+}
+
+
+
+function showLightboxPublicityLogin() {
+    document.getElementById('modalContentPublicity').style.display = 'block';
+    document.getElementById('fade').style.display = 'block';
+}
+
+function hideLightboxPublicityLogin() {
+    document.getElementById('modalContentPublicity').style.display = 'none';
+    document.getElementById('fade').style.display = 'none';
+}
+</script>
+
+</head>
+
+
+<body class="d-flex flex-column Site">
+<div id="browserAlert" style="display:none;"></div>
+<main class="Site-content">
+  <header>
+
+    <div id="header" action="/icbs-web/Process?AID=MAIN-0000&RQE=FAC0019C79B65CAB&CRFT=fac0019c79b6348e" method="post" class="mb-3 mt-3" ref="navbar">    
+      <form id="loginForm" action="/icbs-web/Process?AID=MAIN-0000&RQE=FAC0019C79B65CAC&CRFT=fac0019c79b6348e" method="post" />
+      <navbar ref="nav" 
+        :language="language"
+        :bank-id="bankid"
+      ></navbar>
+    </div>
+
+  </header>
+	<label id="lblPopup"></label>
+	<div id="Zone15" class="side-bar-zone15 section-no-print"></div>
+	<div class="col-xs-12">
+		<main class="center-block">
+			<div class="cols-sm-4 center-block">
+				<div id="content"><script type="text/javascript">
+    $(document).ready(function() {
+    
+        sessionStorage.setItem('appContext', 'FrontEnd');
+    
+        var params = {
+            language: localStorage.getItem("locale"),
+        };
+        var url = "/icbs-web/AjaxTx?AID=LOGIN-0011a&RQE=FAC0019C79B65CAD&CRFT=fac0019c79b6348e"
+        callNextActionPublic("content", url, params);
+    });
+    
+    </script>
+        </div>
+			</div>
+		</main>
+	</div>
+	</main>
+</body>
+	<div id="footer" class="footer" :class="{fixedFooter:fixedActive}">
+     <navbar-footer
+        :bank-id="bankid"
+     ></navbar-footer>	
+	</div>
+    <div id="fade" class="fadebox" onclick="javascript:hideLightbox();">&nbsp;</div>
+<script type="text/javascript">
+var userAgent = window.navigator.userAgent;
+var urlRedirect = "true".trim();
+var responsiveNotSupported = "";
+if (urlRedirect === "true" && (userAgent.match(/Android/i) 
+		|| userAgent.match(/webOS/i) 
+		|| userAgent.match(/iPhone/i) 
+		|| userAgent.match(/iPad/i) 
+		|| userAgent.match(/iPod/i) 
+		|| userAgent.match(/BlackBerry/i) 
+		|| userAgent.match(/Windows Phone/i)) && 
+	responsiveNotSupported != "true") {
+	  // the user is using a mobile device, so redirect to the mobile version of the website
+	  location.href = "https://www.avvillas.com.co/BAVV/icbs-web-resp/index.html";
+}
+
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function () {
+    window.history.pushState(null, "", window.location.href);
+};
+
+    var menuAction = "/icbs-web/AjaxTx?AID=GET_MENU&RQE=FAC0019C79B65CAE&CRFT=fac0019c79b6348e";
+    var bankid = "";
+    var menuIdDate = "";
+    var lb_error_gral_title="Error en la transacci&oacute;n";
+    var lb_error_general_detail="Detalle";
+    var lb_general_end="Finalizar";
+    var lb_general_result="Resultado";
+
+    startDate = "2011/05/12";
+    endDate = "2013/05/12";
+    period = 365;
+    
+    var english = {
+        monthNames : [ 'January', 'February', 'March', 'April', 'May', 'June',
+                'July', 'August', 'September', 'October', 'November',
+                'December' ],
+        dayNamesShort : [ 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su' ]
+    };
+
+    var spanish = {
+        monthNames : [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre',
+                'Diciembre' ],
+        dayNamesShort : [ 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do' ]
+    };
+
+    var home = "/icbs-web/Process?AID=HOME-0000&RQE=FAC0019C79B65CAF&CRFT=fac0019c79b6348e";
+    var urlLogin = "/icbs-web/Process?AID=LOGIN&RQE=FAC0019C79B65CB0&CRFT=fac0019c79b6348e";
+    var bankid = "";
+    bankid = (bankid === "")?"bankProfile-BAVV":bankid;
+    if(bankid.indexOf('bankProfile-') != -1){ bankid = bankid.replace(/bankProfile-/g, ''); }
+
+    var actualDate = $.format.date("24/02/2026",
+            "dd/MM/yyyy");
+    var date = new Date(actualDate);
+    var actualHour = $.format.date("12:16",
+            "HH:mm");
+    var hour = new Date(actualHour);
+    var ratePdf = "tarifas.pdf";
+
+    $("#actual_date").html($.format.date(date, "yyyy/MM/dd"));
+    $("#actual_hour").html($.format.date(hour, "HH:mm"));
+    var Multilanguage = false;
+    
+    if(Multilanguage == true){
+    	$("#chgLanguage").css("display","block");
+    	$("#chgSession").css("display","block");
+    }
+	if(bankid == 'BOCC'){
+	     $("#Zone8").remove();
+    }
+
+    if(bankid == 'BOCC'){
+    	$('#TerminosYcondiciones').hide();
+    }
+
+	sessionStorage.getItem('trazabilityCode'); 
+
+	
+    $(document).on('click', '#link_locale',
+            function() {
+    			var value = 'es';                
+                if (value == "") {
+                    $("#language").val("en");
+                    value = "en";
+                } else if (value == "en") {
+                    $("#language").val("es");
+                    value = "es";
+                } else {
+                    $("#language").val("en");
+                    value = "en";
+                }
+                
+                localStorage.setItem('locale', value);
+
+                var urlLanguage = $("#link_locale").attr('href') + "&language="+ value;
+
+                var inputs = getInputs();
+                syncAjaxLoadText({
+                    url : urlLanguage,
+                    params : inputs
+                });
+                var action = "/icbs-web/Process?AID=LOGIN-0000&RQE=FAC0019C79B65CB1&CRFT=fac0019c79b6348e";
+                $("#loginForm").attr("action", action);
+                $("#loginForm").submit();
+                return false;
+            });
+    
+    function showConfirmTransaction(url) {
+        showContent("divConfirmTrx", url);
+        var isConfirmable= window.isConfirmable;
+        var isTokenConfirm= window.isTokenConfirm;
+        var isPasswordConfirm= window.isPasswordConfirm;
+        var validatorConfirmTrx = {
+            rules : {
+                ssecurID : {
+                    required : isConfirmable
+                }
+            }
+        };
+        return validatorConfirmTrx;
+    }
+
+    function showLightbox() {
+        document.getElementById('modalContent').style.display='block';
+        document.getElementById('fade').style.display='block';
+    }
+    function hideLightbox() {
+        if(document.getElementById('modalContent') != null){
+            document.getElementById('modalContent').style.display='none';
+        }
+        $(".modalContent").hide();
+        document.getElementById('fade').style.display='none';
+    }
+    function showLightbox3() {
+        document.getElementById('modalContent3').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+    }
+    function hideLightbox3() {
+        document.getElementById('modalContent3').style.display = 'none';
+        document.getElementById('fade').style.display = 'none';
+    }
+    function showLightbox4() {
+        document.getElementById('modalContent4').style.display = 'block';
+        document.getElementById('fade').style.display = 'block';
+    }
+    function hideLightbox4() {
+        document.getElementById('modalContent4').style.display = 'none';
+        document.getElementById('fade').style.display = 'none';
+    }
+
+
+    var template = "security_conditions.html";
+    var code = "CCE514";
+
+    loadpublicityParam();
+    
+    function loadpublicityParam() {
+        var urlPublicity = "/icbs-web/Ajax?AID=CAMPAIGN_TEMPLATE&RQE=FAC0019C79B65CB2&CRFT=fac0019c79b6348e";
+        $.ajax({
+                url: urlPublicity,
+                type: 'GET',
+                cache: true,
+                async: true,
+                data: {
+                    "TemplateName": template,
+                    "CampaignCode": code
+                }
+            })
+            .done(function(data) {
+                console.log(data)
+                $("#modalContent3 #containerValueParam").html(data);
+            })
+            .fail(function(data) {});
+    }
+
+    var enableClientEncryption = true;
+
+    sessionStorage.setItem('enableClientEncryption', '' + enableClientEncryption);
+
+    var preexistingSessionStatus = localStorage.getItem("preexistingSessionStatus")
+
+    if(preexistingSessionStatus !== undefined && preexistingSessionStatus != 1) {
+        localStorage.setItem("preexistingSessionStatus",0);
+    }
+    
+
+	var language= localStorage.getItem("locale");
+    redirectLoginUrls = {
+        gralVirtual: '/icbs-web/AjaxTx?AID=NEW_LOGIN_PSE&RQE=FAC0019C79B65CB3&CRFT=fac0019c79b6348e',
+        frontEnd: '/icbs-web/AjaxTx?AID=NEW_LOGIN&RQE=FAC0019C79B65CB4&CRFT=fac0019c79b6348e&language='+language,
+        frontEndPrepare: '/icbs-web/AjaxTx?AID=PREPARE_EXIT-0000&RQE=FAC0019C79B65CB5&CRFT=fac0019c79b6348e',
+        frontEndPreparePSE: '/icbs-web/AjaxTx?AID=PREPARE_EXIT_PSE-0000&RQE=FAC0019C79B65CB6&CRFT=fac0019c79b6348e'
+    };
+    
+    var header;
+
+    var footerVue;
+    $(document).ready(function(){
+        header = new Vue({
+            el: '#header',
+            data: function(){
+            return {
+                isPanel: false,
+                isConnect: false,
+                language: localStorage.getItem("locale")
+            }
+            }
+        });
+        footerVue=new Vue({
+            el: '#footer',
+            data: function(){
+                return {
+                fixedActive: true
+                }
+            }
+        });
+    })
+</script>
+
+</html>

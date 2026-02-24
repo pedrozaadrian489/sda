@@ -1,0 +1,13 @@
+.fade-enter-active[data-v-873ef638],
+.fade-leave-active[data-v-873ef638] {
+  -webkit-transition:opacity .3s;
+  -o-transition:opacity .3s;
+  transition:opacity .3s
+}
+.fade-enter[data-v-873ef638],
+.fade-leave-active[data-v-873ef638] {
+  -webkit-transition:.3s;
+  -o-transition:.3s;
+  transition:.3s;
+  opacity:0
+}

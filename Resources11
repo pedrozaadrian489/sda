@@ -1,0 +1,1420 @@
+/* Buscar asociacion */
+.buttonSearch span, .linkTableOutBorder{
+	color: #314FD2;
+}
+/* Secundario */
+.buttonAvvTx, .asd__action-buttons button:first-child, .buttonPopTx, .multiPay, .btn-finish-style, .rejectEnrollment, .print-ux{
+	background-color: #FFFFFF !important;
+	color:#314FD2 !important;
+	width:  190px  !important;
+	height: 22.22px !important;
+	font-size: 15px !important;
+	border: 1.9px solid #314FD2 !important;
+	border-radius: 20px !important;
+	padding: 7px 18px !important;
+}
+
+#BackLoginTokenUser:active{
+	color: #E3E5FA !important;
+	background: linear-gradient(90deg, #0014A2 0%, #0048DB 100%) !important;
+	font-weight: normal !important;
+}
+
+.buttonAvvTx:hover, .buttonPopTx:hover, .asd__action-buttons button:first-child:hover, .cancelFilter:hover, .multiPay:hover, .btn-finish-style:hover, .rejectEnrollment:hover, .print-ux:hover{
+	background: linear-gradient(#0014A2 0%, #0014A2 100%) !important;
+	color:#FFFFFF !important;
+}
+.buttonAvvTx:active, .buttonPopTx:active, .asd__action-buttons button:first-child:active ,.cancelFilter:active, .multiPay:active, .btn-finish-style:active, .rejectEnrollment:active, .print-ux:active{
+	background: linear-gradient(#E3E5FA 0%, #E3E5FA 100%) !important;
+	color:#314FD2 !important;
+	font-weight: bold !important;
+}
+/* Primario */
+.buttonAvvOtherTx,.buttonBtaTxAcceptContinue, .asd__action-buttons button:nth-child(2), .buttonSavePopTx, .buttonPopOtherTx, .buttonBtaTxConfirm, .buttonBtaTxContinue,.upload_file_ux, .buttonBtaTxConsult, .buttonBtaOtherTx, .buttonRequest, .buttonAddFav, .buttonDelMulti, .btn-success, .createFavorite, .asign,
+.custom-table-print
+{
+	background: linear-gradient(90deg, #0014A2 0%, #0048DB 100%) !important;
+	color: #FFFFFF !important;
+	width:  190px !important;
+	height: 22.22px !important;
+	font-size: 15px !important;
+	border: 1.9px solid transparent !important; 
+	border-radius: 20px !important;
+	padding: 7px 18px !important;
+}
+.buttonAvvOtherTx:hover,.buttonBtaTxContinue:hover,.upload_file_ux:hover, .buttonBtaTxConsult:hover, .buttonSavePopTx:hover,.buttonBtaTxAcceptContinue:hover,.buttonBtaTxConfirm:hover, .asd__action-buttons button:nth-child(2):hover, .buttonPopOtherTx:hover, .filterButton:hover, .buttonBtaOtherTx:hover, .buttonRequest:hover, .buttonAddFav:hover, .buttonDelMulti:hover, .btn-success:hover, .createFavorite:hover, .asign:hover,
+.custom-table-print:hover{
+	background: linear-gradient(#0048DB 0%, #0048DB 100%) !important;
+}
+.buttonAvvOtherTx:active,.buttonBtaTxContinue:active,.upload_file_ux:active, .buttonBtaTxConsult:active, .buttonSavePopTx:active, .buttonBtaTxAcceptContinue:active,.buttonBtaTxConfirm:active, .asd__action-buttons button:nth-child(2):active, .buttonPopOtherTx:active, .filterButton:active, .buttonBtaOtherTx:active, .buttonRequest:active, .buttonAddFav:active, .buttonDelMulti:active, .btn-success:active, .createFavorite:active, .asign:active{
+	background: linear-gradient(#0014A2 0%, #0014A2 100%) !important;
+	font-weight: bold !important;
+	color: #FFFFFF !important;
+}
+/* Boton filtrar */
+.filterButton{
+	background: linear-gradient(90deg, #0014A2 0%, #0048DB 100%) !important;
+	color: #FFFFFF !important;
+	width: 90px !important;
+	border: 1.9px solid transparent !important; 
+	border-radius: 20px !important;
+	padding: 2px 18px !important;
+}
+/* inputs filtro con angle*/
+.inputFilterAngleAvv{
+	border-radius: 20px !important;
+	height: 27px !important;
+	padding-bottom: 1px !important;
+	padding-top: 4px !important;
+	background: #fff url(images/angle-right.png) right .75rem center/21px 21px no-repeat !important;
+}
+/* inputs filtro con angle*/
+.inputFilterAvv, .cont-filters .dynamic-filter-div .inputDynamicFilterAvv.inputFilterAvv{
+	border-radius: 20px !important;
+	height: 27px !important;
+	padding-bottom: 1px !important;
+	padding-top: 4px !important;
+}
+/* inputs text*/
+.inputTextAvv, .multiSelectAvv{
+	border-radius: 20px !important;
+	height: 40px !important;
+	padding-bottom: 1px !important;
+	padding-top: 4px !important;
+	
+}
+
+#inqCreate .inputTextAvv, #inqCreate .multiSelectAvv{
+	border: 2px solid #ced4da!important;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+/* boton Cancelar */
+.buttonCancel, .asd__action-buttons button:first-child{
+	text-decoration: inherit !important;
+}
+/* Tab */
+.tab-item.active, .tab-item.active:hover{
+    background-color: #0014A2;
+    color: #FFFFFF;
+}
+.tab-item{
+	border-top-left-radius: 1em 1em !important;
+	border-top-right-radius: 1em 1em !important;
+	border: 1px solid #0014A2;	
+	border-bottom-width: 0px !important;
+	padding: 6px 24px !important;
+    width: 242px !important;
+}
+/* boton Cancelar filtro*/
+.cancelFilter{
+	height: 25px !important;
+	background-color: #FFFFFF !important;
+	color:#314FD2 !important;
+	width:  126px  !important;
+	font-size: 15px !important;
+	border: 1.9px solid #314FD2 !important;
+	border-radius: 20px !important;
+	padding: 3px 0px !important;
+}
+.buttoSaveTemplate, .buttoSaveTemplate:hover{
+	width:163.5px;
+}
+#filterTransfer,#filterDestiny{
+    width: 38px;
+}
+/* Espacio Modal */
+.spaceButtonRight{
+	margin-right: 5px;
+}
+.spaceButtonLeft{
+	margin-left: 5px;
+}
+.asd__action-buttons button:first-child, .asd__action-buttons button:nth-child(2){
+	height: 22px !important;
+}
+.multiSelectAvvFilter .multiselect__tags, .multiSelectAvvFilter .multiselect__select{
+	min-height: 25px !important;
+    height: 25px !important;
+	border-radius: 20px !important;
+	padding: 3px 8px !important;
+}
+.multiSelectAvvFilter .multiselect__single{
+	width: calc(100% - 30px );
+	margin-top: -3px;
+	top: 6px;
+}
+.multiSelectAvvFilter input{
+	width: calc(100% - 35px );
+}
+.multiSelectAvvFilter{
+	border-radius: 20px !important;
+	min-height: 27px !important;
+	height: 27px !important;
+	padding-bottom: 1px !important;
+	padding-top: 4px !important;
+}
+.multiSelectAvv .multiselect__tags,.multiSelectAvv .multiselect__select {
+	min-height: 34px !important;
+	border-radius: 20px !important;
+	padding: 3px 8px !important;
+}
+.multiSelectAvv .multiselect__select, .multiSelectAvvFilter .multiselect__select{
+	background: #fff url(images/angle-right.png) right .75rem center/21px 21px no-repeat !important;
+}
+#virtualPSE .multiSelectAvv.multiselect--disabled .multiselect__select{
+	background: #D7DEE4 url(images/angle-right.png) right .75rem center/21px 21px no-repeat !important;
+}
+.multiSelectAvv .multiselect__single{
+	width: calc(100% - 30px );
+	margin-top: -3px;
+}
+.multiSelectAvv input{
+	width: calc(100% - 35px );
+}
+.destinyButtons{
+	width: calc(100% + 35px);	
+}
+.imgTokenPassAvv{
+    margin: -70px 0px -20px 0px !important;
+    padding: 157px 0px 0px 157px !important;
+	background: url(images/b_avv/ux_images/Token.svg) no-repeat !important;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.imgTokenPassAvvResult{
+    margin: -49px 0px -20px 0px !important;
+    padding: 150px 0px 0px 150px !important;
+	background: url(images/b_avv/ux_images/Confirmacion.svg) no-repeat !important;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.imgTokenPassAvvResult.fa-check-circle:before{
+	content: none !important;
+}
+#modal-confirmation-token .modal-content, #modal-double-confirmation .modal-content{
+	border-radius: 28px;
+}
+/* Clases para tamanos especificos del modal de token con texto y parametro adicional */
+#modal-confirmation-token .modal-content.reject-auth-no-token{
+  height: 26em !important;
+}
+#modal-confirmation-token .modal-content.reject-auth-token{
+  height: 32em !important;
+}
+#modal-confirmation-token .modal-content.reject-auth-token .imgTokenPassAvv{
+    margin: -30px 0px -20px 0px !important;
+}
+
+#modal-result-tx .modal-content, #mResult .modal-content, #mStatusResult .modal-content, #modal-result .modal-content,
+#modal-result-single-pay .modal-content, #modal-no-inscription .modal-content, #result-modal-changeImage .modal-content,
+#result-modal-changePass .modal-content, #modal-auth-delete-config .modal-content, #modal-auth-delete-config-result .modal-content,
+#modal-select-users .modal-content, #modal-confirm-delete-template .modal-content {
+ 	border-radius: 28px;
+}
+.paddingTokenPassAvv{
+	padding: 1em 0px 0px 0px !important;
+}
+.btnLinkAvv{
+	color: #314FD2 !important;
+}
+/* Link estilo */
+.btnLinkAvv .linkText, #tarifasPdf,.toogleInfoAdd, .btn-link, .btn-link .fe-plus-circle, .styleIcon, .onlyLink{
+	font-weight: bold !important;
+	color: #314FD2 !important;
+	text-decoration: inherit !important;
+}
+button.btnLinkAvv:hover .linkText,.buttn.btnLinkAvv:hover .linkText, #tarifasPdf:hover, .toogleInfoAdd:hover, .onlyLink:hover{
+	text-decoration: underline	!important;
+}
+.btnLinkAvv:active, #tarifasPdf:active, .toogleInfoAdd:active,button.btnLinkAvv:active .linkText, .btn-link:active, .styleIcon:active, .onlyLink:active{
+	color: #0014A2 !important;
+	text-decoration: underline	!important;
+}
+button.btnLinkAvv:active .fa-search{
+	color: #0014A2 !important;
+}
+#filterTransfer,#filterDestiny{
+    width: 38px;
+}
+.multiselect__option--highlight,.multiselect__option--selected .multiselect__option--highlight,.multiselect__option--selected:hover,.multiselect__option--selected:focus{
+    background-color: #314FD2 !important;
+    color: #fff!important;
+}
+.multiselect__element:hover,.multiselect__element:focus{
+    background-color: #314FD2!important;
+    color: #FFF!important;
+}
+.multiselect__element:has(.multiselect__option--highlight) {
+    background-color: #314FD2!important;
+    color: #FFF!important;
+}
+.multiselect__option--selected.multiselect__option--highlight {
+        color: #FFF !important;
+}
+.ui-button-search .buttonSearch.disabled {
+    background: transparent !important;
+    border-color: transparent !important;
+    opacity: 1 !important;
+}
+.btn.disabled, .btn:disabled, .filter-search-button.disabled,.ux-export-excel.disabled {
+    background: #D7DEE4 !important;
+    border-color: #D7DEE4 !important;
+    color: #FFF;
+    font-weight: 400 !important;
+    opacity: 1 !important;
+}
+.iconDownload{
+	margin: 0px -10px 0px 10px !important;
+    padding: 0px 0px 0px 17px !important;
+	background: url(images/b_avv/ux_images/download.svg) no-repeat !important;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.download-file {
+	width: 150px !important;
+}
+.btn-asign-user-avv{
+	width: 60% !important;	
+}
+.badge-info{
+	background-color: #314FD2 !important;
+}
+#newUserPse .multiselect__tags{
+	margin-bottom: 4px;
+}
+#newUserPse .multiSelectAvvFilter .multiselect__select {
+	min-height: 19px !important;
+    height: 19px !important;
+    margin-top: 4px;
+}
+#newUserPse .multiSelectAvvFilter .multiselect__tags {
+	    min-width: 430px !important;
+}
+.styleShareTemplate.disabled{
+	color: #FFFFFF !important;
+}
+.form-control-filter{
+	width: 300px!important;
+    height: 33px!important;
+    color: #333333 !important;
+}
+.one-line{
+	white-space:nowrap;
+}
+.style-toolip .tooltip-inner{
+	color:#314FD2 !important;
+	background: linear-gradient(#E3E5FA 0%, #E3E5FA 100%) !important;
+	border:1.9px solid #314FD2 !important
+}
+.style-toolip .arrow::before{
+	border-top-color: #E3E5FA !important;
+	border-bottom-color: #E3E5FA !important;
+}
+/*Switch*/
+.custom-control-switch-payment .custom-control-input:checked ~ .custom-control-label::before{
+	border-color: #314FD2 !important;
+    background-color: #314FD2 !important;
+}
+/*Checkbox*/
+.custom-control-input:checked~.custom-control-label::before{
+    background-color: #314FD2 !important;
+}
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: #314FD2 !important;
+}
+.custom-checkbox .custom-control-input:indeterminate~.custom-control-label::before {
+    border-color: #314FD2 !important;
+    background-color: #314FD2 !important;
+}
+
+/* CCE873 */
+#searchBar{
+	left: calc(100% - 495px);
+	margin-top:17px;
+}
+/* FIN CCE873*/
+#tarifasPdf{
+	font-size: 15px;	
+}
+.fe-plus-circle {
+	width:0px;
+	height: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 24px 24px;
+	background: url(images/bocc_icons/fe-plus-circle.svg) no-repeat;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.fe-close-color {
+	width:0px;
+	height: 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 18px 0px 0px 18px;
+	background: url(images/bavv_icons/fe-close-color.svg) no-repeat;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#showNext.tooltip{
+	left: 106px !important;
+}
+.margin-multi{
+    margin-left: 25px;
+ }
+ 
+ .register-pagination .multiselect__tags{
+	min-width: 62px !important;
+	min-height: 16px !important;
+	padding-top: 2px !important;
+	margin-right: 0px !important;
+
+}
+.register-pagination .multiselect__select{
+	min-height: 16px !important;
+	max-height: 30px;
+	padding: 0px !important;
+    max-width: 33px;
+    margin-right: -2px;
+    margin-top: 6px;
+}
+
+/* **** LOGIN UX ***** */
+/* HEADER */
+.mainMenu-red-avv {
+    background-color: #E4151C;
+    margin: 0 4vw 0 0;
+    -webkit-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+/* Logo Cabecera*/
+.login-logo-bavv{
+	height: 70px;
+    margin-left: -77px;
+}
+/* Texto Idioma*/
+.link-condition, #langButton,.ux-login-form .button-link{
+	color:#0014A2!important;
+}
+/* FORMULARIO */
+/* Color de evento hover y focus para boton principal de Continuar*/
+.ux-login-form .btn-outline-primary:hover,.ux-login-form .btn-outline-primary:focus,.ux-login-form .btn-outline-primary:active,
+.ux-login-form .btn-outline-primary:not(:disabled):not(.disabled).active
+.ux-login-form .btn-confirm:hover,.ux-login-form .btn-confirm:focus,.ux-login-form .btn-confirm:active,
+.ux-login-form .btn-confirm:not(:disabled):not(.disabled).active{
+	border-color:#0048DB!important;
+	background-color:#0048DB!important;
+	color:#E3E5FA!important;
+}
+/* Color base de botones de confirmacion, continuar, actualizar*/
+.ux-login-form .btn-outline-primary,.ux-login-form .btn-confirm, .ux-login-form .btn-confirm:hover:enabled,.ux-login-form .btn-confirm:focus, 
+.btn-confirm:focus:enabled,.ux-login-form .btn-confirm-static,.ux-login-form .btn-confirm-static:hover,.ux-login-form .btn-confirm-static:focus{
+	background-color:#0014A2!important;
+	color:#E3E5FA!important;
+	border-color:#0014A2!important;
+}
+
+/*Boton Olvido su Contrasena*/
+.ux-login-form .forgot-password{
+	color: #0014A2;
+}
+/* botones de links */
+.ux-login-form .btn-outline {
+	border-color: #0014A2!important;
+	background-color: #FFFFFF!important;
+	color:#0014A2!important;
+}
+.ux-login-form .btn-link{
+	text-decoration: underline!important;
+}
+
+/* Link de lineas de atencion*/
+.ux-login-form #buttonSubLink,.ux-login-form .sublink-button{
+	color: #0014A2;
+	font-weight: bold;
+}
+
+ .ux-login-form #containerImage .btn-success:hover{
+	background: #314FD2!important;
+}
+
+.ux-login-form #containerImage .btn-success:active{
+	background: #0014A2!important;
+	color:#FFFFFF !important;
+}
+
+.ux-login-form .btn-success:hover{
+	background-color: #314FD2 !important;
+	color: #E3E5FA !important;
+}
+
+.ux-login-form .btn-success{
+	background-color: #314FD2 !important;
+	color: #E3E5FA !important;
+}
+
+.ux-login-form .btn-success:active {
+  	background-color: #E3E5FA;
+  	border-color: #0014A2 !important;
+	  transform: translateY(4px);
+	  color: #0014A2!important;
+} 
+
+/* .btn-link:hover{
+ 	background: #FFFFFF !important;
+  	color: #0014A2!important;
+  	border-color: #0014A2!important;
+} */
+
+/*Boton Cerrar de Teclado virtual*/
+.vue-touch-keyboard .keyboard .key.featured{
+	background-color:#FFFFFF;
+	border-color:#0014A2;
+	color:#0014A2;
+}
+.vue-touch-keyboard .keyboard .key.featured:hover,.vue-touch-keyboard .keyboard .key.featured:focus{
+	color: #333;
+	background-color: #d6d6d6;
+	border-color: #adadad;
+}
+/* Boton Cierre de Sesion */
+.ux-form-preexisting-session .btn-close-session, .ux-form-preexisting-session .btn-close-session:hover,
+.ux-form-preexisting-session .btn-close-session:focus,.ux-form-preexisting-session .btn-close-session:focus:active{
+	background-color:#FFFFFF;
+	border-color:#FFFFFF;
+	color:#314FD2;
+}
+
+/* Boton Volver y Cancelar*/
+/* .ux-login-form .btn-back{
+	background-color: #314FD2!important;
+	color: #E3E5FA!important;
+	border-color: #0014A2!important;
+} */
+/* .ux-login-form .button-cancel,.ux-login-form .button-cancel:focus,.ux-login-form .button-cancel:hover,.ux-login-form .button-cancel:active{
+	text-decoration: none!important;
+} */
+
+.ux-form-preexisting-session .btn-close-session:hover{
+	background-color:#314FD2;
+	text-decoration: underline;
+}
+
+/* FOOTER */
+#footer {
+    background: #E4151C;
+}
+
+
+/* **** FIN - LOGIN UX ***** */
+
+/* Onboarding */
+#onboarding .onboarding-container .tooltip-inner{
+	background-color: #1D599F!important;
+	color: #FFFFFF!important;
+}
+div #onboarding .bs-tooltip-bottom .arrow::before {
+    border-bottom-color: #1D599F!important;
+}
+
+div #onboarding .bs-tooltip-top .arrow::before {
+    border-top-color: #1D599F!important;
+}
+
+.onboarding-footer .onboarding-end, .tooltip-close{
+	border-color: #1D599F!important;
+	color: #FFFFFF!important;
+}
+
+/* CF - IME-3084 Nuevos checkbox */
+.custom-control-input[type="checkbox"]:checked ~ .custom-control-label::before,
+.custom-control-input[type="checkbox"]:indeterminate ~ .custom-control-label::before{
+	color: #FFFFFF!important;
+	border-color: #314FD2!important;
+	background-color: #314FD2!important;
+  }
+
+/* ESTILO CONFLICTIVO CON TEMAS DE BORDE VALIDACIÓN CONTROL DE CHECKBOX BOOTSTRAP /*
+/* POR FAVOR NO HABILITAR /*
+
+/*.custom-control-input[type="checkbox"]:not(:checked) ~ .custom-control-label::before{
+	border-color: #EFEFEF!important;
+  }*/
+
+.sidebar{
+	top: 0;
+}
+  
+button.pt-softToken {
+	display: inline !important;
+}
+.size-modal-auth{
+    left: -35px !important;
+}
+
+/* E1054 */
+#val-ranges-modal #btnConfirmSel, #val-ranges-modal #btnCancelSel {
+	width: 120px !important;
+}
+
+#val-ranges-modal #btnConfirmSel {
+	margin-left: 5px !important;
+}
+
+.movements-detail-rqfile-avv div.multiselect {
+	height: 20px !important;
+}
+
+.movements-detail-rqfile-avv div.multiselect__tags {
+	padding: 3px 8px !important;
+	height: 25px !important;
+}
+
+/* Fin E1054 */
+
+#vue-home .consolidate{
+	border: 1px solid #e9e9e9 !important;
+	box-shadow: 0px 5px 10px #c4c4c4 !important;
+	background-color: #FFFFFF !important;
+	border-radius: 12px !important;
+	padding-top: 0px;
+}
+#vue-home .vuetable{
+	border: inherit !important;
+}
+#vue-home .st-h2{
+	color:#000000 !important;
+	font-size: 15px !important;
+    font-weight: 600 !important;
+}
+#vue-home th{
+	font-family: Tahoma !important;
+	color:#000000;
+	background-color: #FFFFFF !important;
+	border: inherit !important;
+	text-align: left;
+	font-size: 14px;
+    font-weight: bold;
+	width: 23%;
+}
+#vue-home td{
+	font-family: Tahoma !important;
+	color:#000000 !important;
+	background-color: #FFFFFF !important;
+	border: inherit !important;
+	font-weight: 500;
+	text-align: left;
+	font-size: 14px;
+}
+#vue-home table.vuetable td{
+	border: inherit !important;
+}
+
+.vuetable-th-tittle_product_home{
+	font-weight: bold !important;
+	font-size: 16px !important;
+	color: #000000 !important
+}
+
+#exportHome button.ux-export-excel, #exportHome a.ux-export-pdf, #exportHome button.export-print-ux {
+	font-family: Tahoma !important;	
+}
+
+#exportHome button.ux-export-excel:not(:disabled), #exportHome a.ux-export-pdf:not(.is-disabled), #exportHome button.export-print-ux:not(:disabled) {
+	border-color: #0014A2 !important;
+	background-color: white !important;
+	font-weight: normal !important;
+}
+
+#exportHome button.ux-export-excel:not(:disabled), #exportHome a.ux-export-pdf:not(.is-disabled), #exportHome button.export-print-ux:not(:disabled) {
+	color: #0014A2 !important; 
+}
+
+#exportHome button.ux-export-excel:hover:not(:disabled), #exportHome a.ux-export-pdf:hover, #exportHome button.export-print-ux:hover:not(:disabled) {
+	color: #FFFFFF !important; 
+	background-color: #0014A2 !important;
+}
+
+.custom-collapse-title {
+	font-weight: bold !important;
+	font-size: 16px !important;
+	color: #000000 !important
+}
+
+@media (max-width: 1380px) {
+	#consultProduct{ 
+		width: 150% !important;
+		margin-top: 30px !important;
+    	float: right !important;
+	}	
+	#balanceProduct .vfl-has-label .multiSelectAvv{
+		width: auto !important;
+		margin-left: 0% !important;
+	}
+}
+
+@media (max-width: 1310px) {
+	#consultProduct{ 
+		width: 130% !important;
+		margin-top: 30px !important;
+    	float: right !important;
+	}	
+	#balanceProduct .vfl-has-label .multiSelectAvv{
+		width: auto !important;
+		margin-left: 0% !important;
+	}
+	#balanceProduct #fundCreateTxFrom{
+		width: 730px !important;
+	}
+}
+
+@media (max-width: 1220px) {
+	#consultProduct{ 
+		width: 110% !important;
+		margin-top: 30px !important;
+    	float: right !important;
+	}	
+	#balanceProduct .vfl-has-label .multiSelectAvv{
+		width: auto !important;
+		margin-left: 0% !important;
+	}
+	#balanceProduct #fundCreateTxFrom{
+		width: 575px !important;
+	}
+}
+
+#button-modal-confirm, #button-modal-cancel{
+	margin-top: 10px !important;
+	margin-right: 12px !important;
+}
+
+#input-modal-ranges{
+	margin-right: 16px !important;
+}
+
+#button-template{
+	margin-left: -13px !important;
+}
+
+.modal-icon{
+	font-size: 80px !important;
+}
+
+#internasAval .vuetable-pagination-info{
+	font-family: 'Onest' !important;
+}
+
+#toggleInfoAdd{
+   	font-family: 'Onest' !important;
+}
+
+.query-val-modal .modal-content {
+	border-radius: 28px;	
+}
+
+.query-val-modal .buttons-container .ui-flowbutton:not(:first-child) {
+	padding: 0px !important;
+}
+
+.dt-year-header, .dt-month-tile {
+	border-radius: 20px !important;
+}
+
+.dt-month-tile.curr-mth {
+	background-color:#0014A2 !important;
+	color:#E3E5FA !important;
+	border-color:#0014A2 !important;
+}
+
+#periodPicker #btnConfirmSel, #periodPicker #btnCancelSel {
+	width: 70px !important;
+}
+#txMadeRqFile #vueRqFileBtn {
+	margin-top: 1px !important;
+}
+
+#input-additional-param {
+    width: 363px !important;
+}
+
+#modalButtons{
+	position: initial !important;
+}
+
+#modalButtons #buttonTokenCancel, #modalButtons #buttonTokenContinue{
+	width: 40%;
+}
+#modalButtons #buttonTokenCancel #btnCancel{
+	width: 100% !important;
+}
+#modalButtons #buttonTokenContinue #btnContinue{
+	width: 100% !important;
+	margin-left: 38px !important;
+}
+
+#txMadeTableSection #rsTableFilters .buttons-container {
+	margin-bottom: 0px !important;
+}
+
+#txMadeTableSection #rsTableFilters .buttons-container button#filterTransfer{
+	margin-top: 1.3px !important;
+}
+
+#txMadeTableSection #rsTableFilters #paymentDate, #txMadeTableSection #rsTableFilters .multiSelectAvvFilter {
+	border: 2px solid #ced4da !important;
+}
+.h-token-challenge, #modal-approve-result .modal-content{
+	border-radius: 28px !important;
+}
+
+/*
+Bre-B
+*/
+.card-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bre-b-card{
+	font-family: 'Roboto', serif;
+	background-color: #FFFFFF;
+	border: 1px solid #E6E6E6;
+	border-radius: 5px;
+	width: 341px;
+	height: 168px;
+}
+
+.bre-b-card-content{
+	padding: 16px;
+}
+
+.bre-b-card-title{
+	font-size: 16px;
+	font-weight: 500;
+	color: #000000;
+	letter-spacing: 0;
+	line-height: 24px;
+}
+
+.bre-b-card-message{
+	font-size: 14px;
+	font-weight: 400;
+	color: #444444;
+	letter-spacing: 0;
+	line-height: 20px;
+}
+
+.bre-b-card-image {
+    margin-bottom: 10px;
+    padding: .375rem .375rem !important;
+    border: 1px solid #E6E6E6 !important;
+    border-radius: 50% !important;
+}
+
+.onboarding-close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.fa-breb-logo {
+	width:0;
+	height: 0;
+	margin: 0 0 0 0;
+	padding: 37px 0 0 125px;
+	background: url(images/bbta_icons/fa-breb-logo.svg) no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-plus-circle {
+	width:0;
+	height: 0;
+	margin: 0  0 0;
+	padding: 30px 0 0 30px;
+	background: url(images/bbta_icons/fa-breb-plus-circle.svg) no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-keys {
+	width:0;
+	height: 0;
+	margin: 0 0 0 0;
+	padding: 30px 0 0 30px;
+	background: url(images/bbta_icons/fa-breb-keys.svg) no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-interrogation-circle {
+	width:0;
+	height: 0;
+	margin: 0 0 0 0;
+	padding: 30px 0 0 30px;
+	background: url(images/bbta_icons/fa-breb-interrogation-circle.svg) no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-interrogation-circle2 {
+    padding: 25px 0 0 30px;
+    margin: 0;
+    background: url(images/bbta_icons/fa-breb-interrogation-circle.svg) no-repeat;
+    background-size: contain;
+}
+
+.alert-breb-title {
+    font-family: 'Roboto', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin: auto 10px;
+}
+
+.alert-breb-description {
+    font-family: 'Roboto', serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+.fa-breb-pc-onboarding {
+    width: 416px;
+    height: 424px;
+    background: url(images/bbta_icons/fa-breb-pc-onboarding.svg) no-repeat;
+    background-size: contain;
+}
+
+.modal-fade-enter-active, .modal-fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.modal-fade-enter, .modal-fade-leave-to {
+    opacity: 0;
+}
+
+.fa-breb-input-padlock {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 30px 0px 0px 30px;
+    background: url(images/bbta_icons/fa-breb-input-padlock.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-black-keys {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 30px 0px 0px 30px;
+    background: url(images/bbta_icons/fa-breb-black-keys.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-hand-keys {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 30px 0px 0px 30px;
+    background: url(images/bbta_icons/fa-breb-hand-keys.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.brebModal ~ .modal-backdrop {
+    background-color: #001947;
+    opacity: 0.8;
+}
+
+#modal-register-key .modal-dialog {
+    max-width: 590px;
+}
+
+@media (max-width: 1300px) {
+    #modal-register-key .modal-dialog {
+        max-width: 45%;
+    }
+}
+
+#modal-register-key .modal-content {
+    border-radius: 8px;
+}
+
+#modal-register-key .modal-body {
+    padding: 40px 60px 40px 60px !important;
+}
+
+.brebModal ~ .modal-backdrop {
+    background-color: #001947;
+    opacity: 0.8;
+}
+
+#modal-register-key .modal-dialog {
+    max-width: 590px;
+}
+
+@media (max-width: 1300px) {
+    #modal-register-key .modal-dialog {
+        max-width: 45%;
+    }
+}
+
+#modal-register-key .modal-content {
+    border-radius: 8px;
+}
+
+#modal-register-key .modal-body {
+    padding: 40px 60px 40px 60px !important;
+}
+
+#modal-register-key h3 {
+    font-weight: 300 !important;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.registerKeyOption {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E6E6E6;
+    align-items: center;
+}
+
+.registerKeyLabel {
+    display: flex;
+    align-items: center;
+}
+
+.registerKeyText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.registerKeyTag {
+    width: fit-content;
+    padding: 0rem 0.5rem;
+    border: 1px solid #9AC7EB;
+    border-radius: 12px;
+    background-color: #9AC7EB;
+    color: #004F99;
+    font-size: 80%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+#Breb #divFormTo #email.is-invalid, #Breb #divFormTo #administratorPhone.is-invalid,
+#Breb #divFormTo #branch.is-invalid, #Breb #divFormTo #address.is-invalid {
+    padding-right: 0.75rem !important;
+}
+
+#Breb #divFormTo #email.is-valid, #Breb #divFormTo #administratorPhone.is-valid,
+#Breb #divFormTo #branch.is-valid, #Breb #divFormTo #address.is-valid {
+    padding-right: 0.75rem !important;
+}
+
+#modal-terms-conditions .modal-dialog {
+    max-width: 1000px;
+}
+
+@media (max-width: 1300px) {
+    #modal-terms-conditions .modal-dialog {
+        max-width: 75%;
+    }
+}
+
+#modal-terms-conditions .termsConditionsBody p {
+    text-align: left !important;
+}
+
+#modal-terms-conditions .termsConditionsContent {
+    flex: 1;
+    overflow-y: auto;
+}
+
+#modal-terms-conditions .button-group-primary {
+    float: right ;
+}
+
+#modal-terms-conditions .button-group-primary .ui-flowbutton {
+    float: right;
+}
+
+#modal-no-breb .modal-dialog {
+    max-width: 800px;
+}
+
+@media (max-width: 1300px) {
+    #modal-no-breb .modal-dialog {
+        max-width: 60%;
+    }
+}
+
+#modal-no-breb .noBrebBody {
+    text-align: left;
+}
+
+#modal-no-breb .noBrebBody p {
+    text-align: left !important;
+}
+
+#modal-no-breb .button-group-primary {
+    float: right ;
+}
+
+#modal-no-breb .button-group-primary .ui-flowbutton {
+    float: right;
+}
+
+#modal-onboarding .modal-dialog {
+    max-width: 1050px;
+}
+
+@media (max-width: 1300px) {
+    #modal-onboarding .modal-dialog {
+        max-width: 75%;
+    }
+}
+
+#modal-onboarding .modal-content {
+    border-radius: 32px;
+    background-color: #FFFFFF !important;
+}
+
+#modal-onboarding .modal-content .close{
+    color: #E1001D !important;
+    opacity: 1 !important;
+}
+
+#modal-onboarding .onboardingBody {
+    height: 550px;
+    display:flex;
+    flex-direction: row;
+    text-align:left;
+}
+
+#modal-onboarding .onboardingContent {
+    flex-grow: 1;
+    flex-basis: 0%;
+    padding: 1rem 3rem 0rem 0rem;
+}
+
+#modal-onboarding .onboardingRectangles {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 5px;
+    gap: 1%;
+}
+
+#modal-onboarding .onboardingRectangle {
+    height: 100%;
+    background-color: #FFEAED !important;
+    flex-grow: 1;
+}
+
+#modal-onboarding .onboardingRectangle.active {
+    background-color: #E1001D !important;
+}
+
+#modal-onboarding .onBoardingText {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    min-height: 340px;
+}
+
+#modal-onboarding .onBoardingTitle {
+    color: #252B31 !important;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 2px;
+    font-family: 'Kiffo BDB', sans-serif !important;
+}
+
+#modal-onboarding .onBoardingSubtitle {
+    color: #252B31 !important;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 40px;
+    letter-spacing: 0px;
+}
+
+#modal-onboarding .onBoardingDesc {
+    color: #252B31 !important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
+
+#modal-onboarding .onBoardingDisclaimer {
+    color: #252B31 !important;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.9px;
+}
+
+#modal-onboarding .onBoardingIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+#modal-onboarding .onBoardingIcon icon {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: unset;
+    height: auto;
+}
+
+#modal-onboarding .fa-breb-onboarding-1 {
+	background: url(images/b_avv/fa-breb-onboarding-1.png) no-repeat !important;
+	background-repeat: no-repeat !important;
+	background-size: contain !important;
+}
+
+#modal-onboarding .fa-breb-onboarding-2 {
+	background: url(images/b_avv/fa-breb-onboarding-2.png) no-repeat !important;
+	background-repeat: no-repeat !important;
+	background-size: contain !important;
+}
+
+#modal-onboarding .fa-breb-onboarding-3 {
+	background: url(images/b_avv/fa-breb-onboarding-3.png) no-repeat !important;
+	background-repeat: no-repeat !important;
+	background-size: contain !important;
+}
+
+#modal-onboarding .button-group-primary {
+    float: right ;
+}
+
+#modal-onboarding .button-group-primary .ui-flowbutton {
+    float: right;
+}
+
+#modal-onboarding .button-group-primary .ui-flowbutton:not(:first-child) {
+    padding-left: 0.85em;
+    margin-right: 15px;
+}
+
+#modal-onboarding .buttonOnboardingAvv {
+    background: #0014A2 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #0014A2 !important;
+    width: auto !important;
+}
+
+#modal-onboarding .buttonExitOnboardingOcc {
+    width: 66px !important;
+}
+
+#Breb #divFormTo input.form-control:enabled {
+    border: 2px solid #ced4da;
+}
+
+#Breb #formOrigin #stepOneLabel.stepOneLabelMaster,
+#Breb #formOrigin #stepTwoLabel.stepTwoLabelMaster,
+#Breb #formOrigin #stepThreeLabel.stepThreeLabelMaster {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.keyTypeLabel {
+    display: flex;
+    align-items: center;
+}
+
+.keyTypeOptions {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.keyTypeOption:has(.custom-control input[type="radio"]:disabled) {
+    color: #808080;
+}
+
+.keyTypeOption {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+#Breb .custom-radio .custom-control-input ~ .custom-control-label::before {
+    border-color: #B3B3B3;
+}
+
+#Breb .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #0043A9;
+}
+
+.fa-breb-alphanumeric {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 23px 0px 0px 23px;
+    background: url(images/bbta_icons/fa-breb-alphanumeric.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-id-number {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 23px 0px 0px 23px;
+    background: url(images/bbta_icons/fa-breb-id-number.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-mobile-number {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 23px 0px 0px 23px;
+    background: url(images/bbta_icons/fa-breb-mobile-number.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-email {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 23px 0px 0px 23px;
+    background: url(images/bbta_icons/fa-breb-email.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-tag-aval {
+    width: 0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 12px 0px 0px 69px;
+    background: url(images/bbta_icons/fa-breb-tag-aval.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-info-square {
+    width: 0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 20px 0px 0px 20px;
+    background: url(images/bocc_icons/fa-breb-info-square.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.fa-breb-warning-octagon {
+    width: 0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 20px 0px 0px 20px;
+    background: url(images/bocc_icons/fa-breb-warning-octagon.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.brebAlertLabel {
+    font-size: smaller;
+    color: #444444;
+    line-height: 20px;
+}
+
+.qrOptions {
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    width: 104%;
+}
+
+.qrOption {
+    display: flex;
+    align-items: center;
+}
+
+.qrOptions .qrOption:not(:last-child) {
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.qrOption .custom-checkbox .custom-control-input:disabled[type="checkbox"]:checked~.custom-control-label::before {
+    border: 1px solid #B3B3B3 !important;
+    background-color: #B3B3B3 !important;
+}
+
+#modal-confirm .modal-dialog {
+    max-width: 800px;
+}
+
+@media (max-width: 1300px) {
+    #modal-confirm .modal-dialog {
+        max-width: 60%;
+    }
+}
+
+#modal-confirm .confirmSection {
+    border-bottom: 2px dotted #E6E6E6;
+}
+
+#modal-confirm .confirmSection .row {
+    justify-content: space-between;
+}
+
+#modal-onboarding .button-group-primary {
+    float: right ;
+}
+
+#modal-onboarding .button-group-primary .ui-flowbutton {
+    float: right;
+}
+
+.brebResultContent {
+    border-bottom: 1px solid #E6E6E6;
+    display: flex;
+    flex-direction: column;
+}
+
+.breb-bank-logo {
+    width: 0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 34px 0px 0px 160px !important;
+    background: url(images/bavv_icons/breb-bank-logo.svg) no-repeat !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+}
+
+.fa-breb-check-circle {
+    width:0px;
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 32px 0px 0px 32px;
+    background: url(images/bbta_icons/fa-breb-check-circle.svg) no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#destinataryName.is-valid{
+	padding-right: 12px !important;
